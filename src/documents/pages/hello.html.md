@@ -1,7 +1,7 @@
 ---
-title: This is a Page
+title: About
 layout: page
-tags: ['intro','page']
+tags: ['about','page']
 pageOrder: 1
 ---
-This is a **page**
+This is about me.

@@ -5,19 +5,11 @@
 - scripts.add(["/vendor/prettify.js"])
 - styles.add(["/vendor/prettify.css"])
 
-//- jQuery
-- scripts.add(["/vendor/jquery/jquery.js"])
-
 //- Bootstrap
-- scripts.add(["/vendor/components-bootstrap/js/bootstrap.js"])
 - styles.add(["/vendor/components-bootstrap/css/bootstrap.css"])
-
-//- Other Scripts
-- scripts.add(["/vendor/log.js","/vendor/modernizr.js"])
 
 //- User
 - styles.add(["/styles/style.css"])
-- scripts.add(["/scripts/script.js"])
 
 doctype 5
 html(lang="en")
@@ -64,15 +56,15 @@ html(lang="en")
     nav.navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
-          a.navbar-brand(href="/") Welcome
+          a.navbar-brand(href="/") Home
         ul.nav.navbar-nav
           each doc in getCollection('pages').toJSON()
             - clazz = (document.url === doc.url) ? 'active' : null
             li(typeof="sioc:Page", about=doc.url, class=clazz)
               a(href=doc.url, property="dc:title")= doc.title
+    section#content.content!= content
+    hr
     .container
-      section#content.content!= content
-      hr
       footer
         div= site.copyright
         div(style="font-style:italic; font-size: 12px") This website was last updated at #{site.date}

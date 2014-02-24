@@ -21,11 +21,11 @@ docpadConfig =
       ]
 
       # The default title of our website
-      title: "Your Website"
+      title: "Omer Wazir"
 
       # The website description (for SEO)
       description: """
-        When your website appears in search results in say Google, the text here will be shown underneath your website's title.
+        Software developer living in Tucson Arizona.
         """
 
       # The website keywords (for SEO) separated by commas
@@ -34,13 +34,13 @@ docpadConfig =
         """
 
       # The website author's name
-      author: "Your Name"
+      author: "Omer Wazir"
 
       # The website author's email
       email: "your@email.com"
 
       # Your company's name
-      copyright: "© Your Company 2013"
+      copyright: "© Omer Wazir 2014"
 
 
     # Helper Functions
