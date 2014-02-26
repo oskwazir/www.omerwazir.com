@@ -55,33 +55,22 @@ html(lang="en")
   body
 
     // Markup
-    nav.navbar.navbar-default.navbar-fixed-top
+    nav.navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
-          a.navbar-brand(href="/") Home
-        ul.nav.navbar-nav
-          each doc in getCollection('pages').toJSON()
-            - clazz = (document.url === doc.url) ? 'active' : null
-            li(typeof="sioc:Page", about=doc.url, class=clazz)
-              a(href=doc.url, property="dc:title")= doc.title
-    .container
-      .blog-header
-        h1.blog-title= site.title
-        p.lead.blog-description= site.description
+          button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+            span.condensed.text-grey menu
+          a.navbar-brand(href="/") OmerWazir.com
+        .collapse.navbar-collapse.navbar-left
+          ul.nav.navbar-nav
+            each doc in getCollection('pages').toJSON()
+              - clazz = (document.url === doc.url) ? 'active' : null
+              li(typeof="sioc:Page", about=doc.url, class=clazz)
+                a(href=doc.url, property="dc:title")= doc.title
+    .container.blog-main
       .row
-        .col-sm-8.blog-main
-          section!= content
-        .col-sm-3.col-sm-offset-1.blog-sidebar
-          .sidebar-module.sidebar-module-inset
-            .h4 About
-            p
-              | Etiam porta sem malesuada magna mollis euismod. 
-              | Cras mattis consectetur purus sit amet fermentum. 
-              | Aenean lacinia bibendum nulla sed consectetur.
-          .sidebar-module
-            .h4 Archives
-          .sidebar-module
-            .h4 Elsewhere              
+        .col-sm-12.blog-main
+          section!= content            
     hr
     .container
       footer
@@ -89,4 +78,5 @@ html(lang="en")
         div(style="font-style:italic; font-size: 12px") This website was last updated at #{site.date}
 
     // Scripts
+    script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
     != scripts.toHTML()

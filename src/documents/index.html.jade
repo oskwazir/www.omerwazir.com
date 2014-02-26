@@ -4,12 +4,17 @@ title: 'Home'
 ---
 .row
   .col-sm-12
-    dl.dl-horizontal
-      each doc in getCollection('posts').toJSON()
-         dt.condensed= doc.date.toDateString()
-         dd
-          a(href=doc.url)= doc.title
-          p= doc.lead
+    each doc in getCollection('posts').toJSON() 
+      article.blog-post
+        p.blog-post-meta= doc.humanDate
+        a(href=doc.url)
+          h2.blog-post-title= doc.title
+        p.lead.blog-post-lead= doc.lead
+        .post-content!= doc.content
+         //- dt.condensed= doc.date.toDateString()
+         //- dd
+         //-  a(href=doc.url)= doc.title
+         //-  p= doc.lead 
 
 //- Main hero unit for a primary marketing message or call to action.
   .jumbotron
