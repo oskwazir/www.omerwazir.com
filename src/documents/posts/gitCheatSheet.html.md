@@ -1,4 +1,12 @@
-I'm learning how to use git and I came across this cheat sheet from [Github](https://help.github.com/articles/git-cheatsheet) which is installed as a ruby gem and is useful to have in a terminal. The cheat sheet is identical to [cheat.errtheblog](http://cheat.errtheblog.com/s/git) and I'm reposting it here for my own benefit.
+---
+title: The Git Cheat Sheet
+layout: post
+tags: ['git','cheat-sheet','post']
+lead: "I came across this git cheat sheet and have posted it here for my own reference"
+---
+
+
+I initially found this at [Github](https://help.github.com/articles/git-cheatsheet) and it's identical to [cheat.errtheblog](http://cheat.errtheblog.com/s/git).
 
 ### Setup
 Clone the repository specified by `<repo>` this is similar to "checkout" in some other version control systems such as Subversion and CVS:
