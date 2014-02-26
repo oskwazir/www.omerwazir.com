@@ -88,7 +88,7 @@ call :SelectNodeVersion
 :: 2. Install npm packages
 echo Installing npm packages...
 pushd "%DEPLOYMENT_SOURCE%"
-call !NPM_CMD! install --production
+call !NPM_CMD! install
 IF !ERRORLEVEL! NEQ 0 goto error
 popd
 
