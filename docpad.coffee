@@ -1,6 +1,22 @@
+# Requires
+require('docpad-plugin-moment');
+
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig =
+
+  # Plugins
+  #========
+  # Configurations for docpad plugins
+  #
+
+  plugins:
+    moment:
+      formats: [
+        {raw: 'date', format: 'MMMM Do YYYY', formatted: 'humanDate'}
+        {raw: 'date', format: 'YYYY-MM-DD', formatted: 'computerDate'}
+      ]
+
 
   # Template Data
   # =============

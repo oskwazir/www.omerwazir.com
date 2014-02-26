@@ -2,8 +2,9 @@
 layout: default
 ---
 
-article#post.post
-  h1= document.title
+article#post.blog-post
+  h2.blog-post-title= document.title
+  p.blog-post-meta= document.humanDate
   .post-content!= content
 
 footer

@@ -62,7 +62,24 @@ html(lang="en")
             - clazz = (document.url === doc.url) ? 'active' : null
             li(typeof="sioc:Page", about=doc.url, class=clazz)
               a(href=doc.url, property="dc:title")= doc.title
-    section#content.content!= content
+    .container
+      .blog-header
+        h1.blog-title= site.title
+        p.lead.blog-description= site.description
+      .row
+        .col-sm-8.blog-main
+          section!= content
+        .col-sm-3.col-sm-offset-1.blog-sidebar
+          .sidebar-module.sidebar-module-inset
+            .h4 About
+            p
+              | Etiam porta sem malesuada magna mollis euismod. 
+              | Cras mattis consectetur purus sit amet fermentum. 
+              | Aenean lacinia bibendum nulla sed consectetur.
+          .sidebar-module
+            .h4 Archives
+          .sidebar-module
+            .h4 Elsewhere              
     hr
     .container
       footer
