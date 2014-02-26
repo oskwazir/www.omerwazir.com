@@ -10,7 +10,7 @@ title: 'Home'
         a(href=doc.url)
           h2.blog-post-title= doc.title
         p.lead.blog-post-lead= doc.lead
-        .post-content!= doc.contentRendered
+        .post-content!= doc.contentRenderedWithoutLayouts
          //- dt.condensed= doc.date.toDateString()
          //- dd
          //-  a(href=doc.url)= doc.title
