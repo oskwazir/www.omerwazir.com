@@ -2,13 +2,14 @@
 layout: 'default'
 title: 'Home'
 ---
-.container
-  .col-md-12
+.row
+  .col-sm-12
     dl.dl-horizontal
       each doc in getCollection('posts').toJSON()
-         dt= doc.date.toDateString()
+         dt.condensed= doc.date.toDateString()
          dd
           a(href=doc.url)= doc.title
+          p= doc.lead
 
 //- Main hero unit for a primary marketing message or call to action.
   .jumbotron

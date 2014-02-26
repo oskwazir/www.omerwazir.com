@@ -4,9 +4,8 @@ layout: page
 pageOrder: 2
 ---
 
-nav.linklist
+dl.dl-horizontal
   each doc in getCollection('posts').toJSON()
-    li
-      span= doc.date.toDateString()
-      |  &raquo;&nbsp;
+    dt.condensed= doc.date.toDateString()
+    dd
       a(href=doc.url)= doc.title
