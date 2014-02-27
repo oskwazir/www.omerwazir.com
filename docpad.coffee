@@ -97,6 +97,14 @@ docpadConfig =
     posts: (database) ->
       database.findAllLive({relativeOutDirPath:'posts'},[date:-1])
 
+    # Enabling drafts via Ewal.net guide
+    # http://www.ewal.net/2013/10/13/draft-posts-with-docpad/
+  environments:
+      development:
+          collections:
+              posts: (database) ->
+                  database.findAllLive({relativeDirPath: {'$in' : ['posts', 'drafts']}}, [relativeDirPath: 1,  date: -1])
+
 
   # DocPad Events
   # =============
