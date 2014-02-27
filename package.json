@@ -41,11 +41,11 @@
     "docpad-plugin-jade": "~2.6.2",
     "docpad-plugin-related": "~2.2.2",
     "marked": "*",
-    "docpad-plugin-moment": "~2.0.2"
+    "docpad-plugin-moment": "~2.0.2",
+    "bower": "~1"
   },
   "devDependencies": {
-    "docpad-plugin-livereload": "~2.6.0",
-    "bower": "~1"
+    "docpad-plugin-livereload": "~2.6.0"
   },
   "main": "node_modules/docpad/bin/docpad-server",
   "scripts": {
