@@ -2,11 +2,13 @@
 title: The Git Cheat Sheet
 layout: post
 tags: ['git','cheat-sheet','post']
-lead: "I came across this git cheat sheet and have posted it here for my own reference"
+lead: "Here's a great cheet sheet for git that'll help you figure out some pretty cool tasks"
 ---
 
 
 I initially found this at [Github](https://help.github.com/articles/git-cheatsheet) and it's identical to [cheat.errtheblog](http://cheat.errtheblog.com/s/git).
+
+---
 
 ### Setup
 Clone the repository specified by `<repo>` this is similar to "checkout" in some other version control systems such as Subversion and CVS:
