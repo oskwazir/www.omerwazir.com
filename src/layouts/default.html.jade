@@ -58,10 +58,10 @@ html(lang="en")
     nav.navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
-          button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+          //-button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
             span.condensed.text-grey menu
-          a.navbar-brand(href="/") OmerWazir.com
-        .collapse.navbar-collapse.navbar-left
+          a.navbar-brand.serif(href="/") OmerWazir.com
+        //- .collapse.navbar-collapse.navbar-left
           ul.nav.navbar-nav
             each doc in getCollection('pages').toJSON()
               - clazz = (document.url === doc.url) ? 'active' : null
