@@ -1,5 +1,5 @@
 ---
-title: Getting RequireJS to work with Grunt and Angular.
+title: RequireJS and Angular
 layout: post
 tags: ['awkward','post']
 lead: "Save yourself a headache and see how I got RequireJS to work with Grunt and Angular"
