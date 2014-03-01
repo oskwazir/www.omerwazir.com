@@ -5,9 +5,6 @@
 - scripts.add(["/vendor/prettify.js"])
 - styles.add(["/vendor/prettify.css"])
 
-//- Bootstrap
-- styles.add(["/vendor/components-bootstrap/css/bootstrap.css"])
-
 //- User
 - styles.add(["/styles/style.css"])
 
@@ -49,6 +46,7 @@ html(lang="en")
     //if lt IE 9
       script(async src="http://html5shim.googlecode.com/svn/trunk/html5.js")
 
+    link(href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", rel="stylesheet")
     // Styles
     != styles.toHTML()
 
@@ -60,22 +58,21 @@ html(lang="en")
         .navbar-header
          //-button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
             span.spacedHeading.white-text menu
-          a.navbar-brand.spacedHeading.serif(href="/") OmerWazir.com
+        a.navbar-brand.spacedHeading.serif(href="/") OmerWazir.com
         .hidden-xs.collapse.navbar-collapse.navbar-left
           ul.nav.navbar-nav
             each doc in getCollection('pages').toJSON()
               - clazz = (document.url === doc.url) ? 'active' : null
               li(typeof="sioc:Page", about=doc.url, class=clazz)
-                a(href=doc.url, property="dc:title")= doc.title
+                a.spacedHeading.serif(href=doc.url, property="dc:title")= doc.title
     .container.blog-main
       .row
         .col-sm-12.blog-main
           section!= content            
     hr
     .container
-      footer
+      footer.serif
         div= site.copyright
-        div This website was last updated at #{site.date}
 
     // Scripts
     != scripts.toHTML()
