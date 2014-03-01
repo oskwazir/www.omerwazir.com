@@ -8,7 +8,7 @@ title: 'Home'
       each doc in getCollection('posts').toJSON() 
         li
           a.archivedPost(href=doc.url)
-            h2= doc.title
+            h2.condensedHeading= doc.title
             p= doc.humanDate
             p= doc.lead
          //- dt.condensed= doc.date.toDateString()

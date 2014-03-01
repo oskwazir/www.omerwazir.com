@@ -58,10 +58,10 @@ html(lang="en")
     nav.navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
-          //-button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
-            span.condensed.text-grey menu
-          a.navbar-brand.serif(href="/") OmerWazir.com
-        //- .collapse.navbar-collapse.navbar-left
+         //-button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+            span.spacedHeading.white-text menu
+          a.navbar-brand.spacedHeading.serif(href="/") OmerWazir.com
+        .hidden-xs.collapse.navbar-collapse.navbar-left
           ul.nav.navbar-nav
             each doc in getCollection('pages').toJSON()
               - clazz = (document.url === doc.url) ? 'active' : null
@@ -75,8 +75,7 @@ html(lang="en")
     .container
       footer
         div= site.copyright
-        div(style="font-style:italic; font-size: 12px") This website was last updated at #{site.date}
+        div This website was last updated at #{site.date}
 
     // Scripts
-    script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
     != scripts.toHTML()
