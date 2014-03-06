@@ -10,8 +10,11 @@ tan= #BD8D46
 lightGrey=#EFF2F5
 white= #FFF
 
+html,body
+  height 100%
+
 body 
-  font-family "ff-tisa-web-pro",Georgia, "Times New Roman", Times, serif;
+  font-family "ff-tisa-web-pro",Georgia, "Times New Roman", Times, serif
   color #555
   background-color white
 
@@ -26,11 +29,11 @@ pre
 .navbar
   border-radius 0px
 
-.navbar-inverse
+.navbar-inverse, .blog-footer
   background-color red
   border-color red
   
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li >a
+.blog-footer,.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li >a
   color creamy
 
 h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
@@ -135,18 +138,6 @@ article
   font-size 18px
   line-height 1.5
 
-/* Pagination */
-.pager 
-  margin-bottom 60px
-  text-align left
-
-.pager > li > a 
-  width 140px
-  padding 10px 20px
-  text-align center
-  border-radius 30px
-
-
 /*
  * Blog posts
  */
@@ -167,14 +158,26 @@ article
   font-style italic
   font-size 28px
 
+/* Used to create sticky footer */
+/* http://css-tricks.com/snippets/css/sticky-footer/ */
+.page-wrap 
+  min-height 100%
+  /* equal to footer height */
+  margin-bottom -60px 
+
+.page-wrap:after 
+  content ""
+  display block
+
+
 /*
  * Footer
  */
+.blog-footer, .page-wrap:after 
+  /* .push must be the same height as footer */
+  height: 60px  
 
-.blog-footer 
-  padding 40px 0
-  color #999
+.blog-footer
   text-align center
-  background-color #f9f9f9
-  border-top 1px solid #e5e5e5
+  border 1px solid maroon
 

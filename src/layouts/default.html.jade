@@ -65,14 +65,15 @@ html(lang="en")
               - clazz = (document.url === doc.url) ? 'active' : null
               li(typeof="sioc:Page", about=doc.url, class=clazz)
                 a.spacedHeading.serif(href=doc.url, property="dc:title")= doc.title
-    .container.blog-main
+    .container.blog-main.page-wrap
       .row
         .col-sm-12.blog-main
           section!= content            
-    hr
     .container
-      footer.serif
-        div= site.copyright
+      .row
+        .col-xs-12
+          footer.serif.blog-footer
+            div= site.copyright
 
     // Scripts
     != scripts.toHTML()
