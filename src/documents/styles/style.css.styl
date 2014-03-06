@@ -2,24 +2,36 @@
  * Globals
  */
 
+red= #B9121B
+maroon= #4C1B1B
+paleYellow= #F6E497
+creamy= #FCFAE1
+tan= #BD8D46
+lightGrey=#EFF2F5
+white= #FFF
+
 body 
   font-family "ff-tisa-web-pro",Georgia, "Times New Roman", Times, serif;
   color #555
-  background-color #EFF2F5
+  background-color white
 
 .jumbotron
-  background-color #EFF2F5
+  background-color white
+
+pre
+  background-color creamy
+  border 1px solid paleYellow
 
 
 .navbar
   border-radius 0px
 
 .navbar-inverse
-  background-color #B9121B
-  border-color #B9121B
+  background-color red
+  border-color red
   
-.navbar-inverse navbar-brand, .navbar-inverse .navbar-nav>li>a
-  color #FCFAE1
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li >a
+  color creamy
 
 h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
   margin-top 0
@@ -72,35 +84,9 @@ article
  * Override Bootstrap's default container.
  */
 
-@media (min-width 1200px) 
-  .container 
-    width 970px
-  
-
-
-
-/*
- * Masthead for nav
- */
-
-.blog-masthead 
-  background-color #428bca
-  box-shadow inset 0 -2px 5px rgba(0,0,0,.1)
-
-
-/* Nav links */
-.blog-nav-item 
-  position relative
-  display inline-block
-  padding 10px
-  font-weight 500
-  color #cdddeb
-
-.blog-nav-itemhover,
-.blog-nav-itemfocus 
-  color #fff
-  text-decoration none
-
+// @media (min-width 1200px) 
+//   .container 
+//     width 970px
 
 /* Active state gets a caret at the bottom */
 .blog-nav .active 
@@ -149,25 +135,6 @@ article
   font-size 18px
   line-height 1.5
 
-
-/* Sidebar modules for boxing content */
-.sidebar-module 
-  padding 15px
-  margin 0 -15px 15px
-
-.sidebar-module-inset 
-  padding 15px
-  background-color #f5f5f5
-  border-radius 4px
-
-.sidebar-module-inset plast-child,
-.sidebar-module-inset ullast-child,
-.sidebar-module-inset ollast-child 
-  margin-bottom 0
-
-
-
-
 /* Pagination */
 .pager 
   margin-bottom 60px
@@ -178,7 +145,6 @@ article
   padding 10px 20px
   text-align center
   border-radius 30px
-
 
 
 /*
@@ -194,14 +160,13 @@ article
   font-weight 700
 
 .blog-post-meta 
-  color #999
+  color red
 
 .blog-post-lead
   padding-top 1em
   font-weight 400
   font-style italic
   font-size 28px
-
 
 /*
  * Footer
