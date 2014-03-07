@@ -3,6 +3,7 @@ title: The correct characters to use for quotes
 layout: post
 tags: ['git','cheat-sheet','post']
 lead: "Do the right thing and use smart quotes when you aren’t writing code."
+date: 2014-03-06 21:28:30
 ---
 
 [Smart Quotes For Smart People](http://smartquotesforsmartpeople.com/)
