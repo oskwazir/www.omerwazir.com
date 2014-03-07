@@ -2,16 +2,16 @@
 title: The Git Cheat Sheet
 layout: post
 tags: ['git','cheat-sheet','post']
-lead: "Here's a great cheet sheet for git that'll help you figure out some pretty cool tasks"
+lead: "Here’s a great cheet sheet for git that’ll help you figure out some pretty cool tasks"
 ---
 
 
-I initially found this at [Github](https://help.github.com/articles/git-cheatsheet) and it's identical to [cheat.errtheblog](http://cheat.errtheblog.com/s/git).
+I initially found this at [Github](https://help.github.com/articles/git-cheatsheet) and it’s identical to [cheat.errtheblog](http://cheat.errtheblog.com/s/git).
 
 ---
 
 ### Setup
-Clone the repository specified by `<repo>` this is similar to "checkout" in some other version control systems such as Subversion and CVS:
+Clone the repository specified by `<repo>` this is similar to &#8220;checkout&#8221; in some other version control systems such as Subversion and CVS:
     
     git clone <repo>
     
@@ -70,7 +70,7 @@ Edit the .git/config [or ~/.gitconfig] file in your $EDITOR:
 
 Sets your name and email for commit messages:
 
-    git config --global user.name 'John Doe'
+    git config --global user.name ’John Doe'
     git config --global user.email johndoe@example.com
 
 Tells `git branch` and `git checkout` to setup new branches so that `git pull` will appropriately merge from that remote branch.  **Recommended**. Without this you will have to add `--track` to your branch command or manually merge remote tracking branches with `fetch` and then `merge`:
@@ -454,7 +454,7 @@ Find the commit in the repository that contains the file blob:
 ---
 ### Squashing
 
-#### WARNING "git rebase" changes history. Be careful & Google it. 
+#### WARNING &#8220;git rebase&#8221; changes history. Be careful & Google it. 
 
 Change all but the first “pick” to “squash”. Squash the last 10 commits into one big commit:
 
@@ -479,7 +479,7 @@ Once all conflicts are resolved and staged, commit the pending merge with:
 
 ### Sharing
 
-Update the remote-tracking branches for `<remote>` (defaults to "origin"). Does not initiate a merge into the current branch (see "git pull" below):
+Update the remote-tracking branches for `<remote>` (defaults to &#8220;origin&#8221;). Does not initiate a merge into the current branch (see &#8220;git pull&#8221; below):
     
     git fetch <remote>
 
