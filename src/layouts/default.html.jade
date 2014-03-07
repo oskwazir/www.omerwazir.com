@@ -58,13 +58,13 @@ html(lang="en")
         .navbar-header
          //-button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
             span.spacedHeading.white-text menu
-        a.navbar-brand.spacedHeading.serif(href="/") OmerWazir.com
+        a.navbar-brand.spacedHeading.sans-serif(href="/") OmerWazir.com
         .hidden-xs.collapse.navbar-collapse.navbar-left
           ul.nav.navbar-nav
             each doc in getCollection('pages').toJSON()
               - clazz = (document.url === doc.url) ? 'active' : null
               li(typeof="sioc:Page", about=doc.url, class=clazz)
-                a.spacedHeading.serif(href=doc.url, property="dc:title")= doc.title
+                a.spacedHeading.sans-serif(href=doc.url, property="dc:title")= doc.title
     .container.blog-main.page-wrap
       .row
         .col-sm-12.blog-main
@@ -72,7 +72,7 @@ html(lang="en")
     .container
       .row
         .col-xs-12
-          footer.serif.blog-footer
+          footer.sans-serif.blog-footer
             div= site.copyright
 
     // Scripts
