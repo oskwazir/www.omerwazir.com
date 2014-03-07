@@ -680,18 +680,31 @@ Executes the given command within each checked out submodule.
 
 1. Delete the relevant line from the .gitmodules file.
 2. Delete the relevant section from .git/config.
-3. Run `git rm --cached path_to_submodule` (no trailing slash).
+3. Run 
+    
+    ```
+    git rm --cached path_to_submodule
+    ```
+
+ (no trailing slash).
+
 4. Commit and delete the now untracked submodule files.
 
 ####Updating submodules
 To update a submodule to a new commit:
 
    1. update submodule:
-        `cd <path to submodule>`
-        `git pull`
+        ```
+        cd <path to submodule>
+        
+        git pull
+        ```
    2. commit the new version of submodule:
-        `cd <path to toplevel>`
-        `git commit -m "update submodule version"`
+        ```
+        cd <path to toplevel>
+        
+        git commit -m "update submodule version"
+        ```
    3. check that the submodule has the correct version
         `git submodule status`
 If the update in the submodule is not committed in the
