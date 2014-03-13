@@ -65,17 +65,9 @@ html(lang="en")
               - clazz = (document.url === doc.url) ? 'active' : null
               li(typeof="sioc:Page", about=doc.url, class=clazz)
                 a.spacedHeading.sans-serif(href=doc.url, property="dc:title")= doc.title
-    .container.blog-main.page-wrap
+    .container.blog-main
       .row
         .col-sm-12.blog-main
-          section!= content            
-    //- footer.sans-serif.sticky-footer
-    //-         .container
-    //-           .row
-    //-             .col-sm-6
-    //-               p= site.copyright
-    //-             .col-sm-6
-    //-               p Contact Me
-
+          section!= content       
     // Scripts
     != scripts.toHTML()
