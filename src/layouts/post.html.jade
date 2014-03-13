@@ -3,18 +3,7 @@ layout: default
 ---
 
 article.blog-post
-  h1.jumbotron.text-center.blog-post-title.condensedHeading= document.title
+  h1.jumbotron.text-left.blog-post-title.condensedHeading= document.title
   p.blog-post-meta.pop.spacedHeading.sans-serif= document.humanDate
   p.lead.blog-post-lead.sans-serif= document.lead
   .post-content!= content
-
-footer
-  if document.relatedDocuments && document.relatedDocuments.length
-    section#related
-      h3 Related Posts
-      nav.linklist
-        each doc in document.relatedDocuments
-          li
-            span= doc.date.toDateString()
-            |  &raquo;&nbsp;
-            a(href=doc.url)= doc.title
