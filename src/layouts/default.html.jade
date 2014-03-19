@@ -53,7 +53,16 @@ html(lang="en")
   body
 
     // Markup
-    nav.navbar.navbar-inverse
+    .row.navigation-bar
+      .col-sm-3.navigation-header
+        a.site-title.spacedHeading.sans-serif(href="/") OmerWazir.com
+      .col-sm-9
+        ul.list-inline.site-pages
+            each doc in getCollection('pages').toJSON()
+              - clazz = (document.url === doc.url) ? 'active' : null
+              li(typeof="sioc:Page", about=doc.url, class=clazz)
+                a.spacedHeading.sans-serif(href=doc.url, property="dc:title")= doc.title
+    //-nav.navbar.navbar-inverse
       .container
         .navbar-header
          //-button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
