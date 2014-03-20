@@ -94,14 +94,14 @@ article
 .archiveList li
   border-bottom 1px solid #f0f0f0
 
+.blog-post, .archivedPost
+  transition all 0.3s ease-out
 
 .archivedPost
   color #555
   text-decoration none
   display block
   padding 2em 1em
-  transition all 0.2s ease-out
-  // border-top 1px solid #e3e3e3
   &:hover 
     color #222
     text-decoration none
@@ -171,10 +171,12 @@ article
 .blog-post 
   margin-bottom 60px
 
+.archived-heading, .blog-post-title, .page-title
+    font-weight 700
+    font-style italic
+
 .blog-post-title, .page-title
   margin-bottom 16px
-  font-weight 700
-  font-style italic
 
 
 /* Small devices (tablets, 768px and up) */
