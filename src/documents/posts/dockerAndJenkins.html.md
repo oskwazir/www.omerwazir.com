@@ -12,6 +12,9 @@ date: 2014-03-31 22:59:23
 
 ### Finding a Jenkins image
 
-### Adjustments
+### Tips
+#### Running an image and starting a container
+In the very early stages of using docker I incorrectly would try to run a previously stopped/killed image thinking that my data would persist. The image would load and I would be super sad to realize my data was gone. I was completely ignoring the difference between images and containers. 
+
 
 ### Final words
