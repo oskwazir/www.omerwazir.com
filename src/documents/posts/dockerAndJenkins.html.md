@@ -1,5 +1,5 @@
 ---
-title: Using a Docker image to run Jenkins on a VM
+title: Using a Docker image to run Jenkins
 layout: post
 tags: ['docker','jenkins','continuous-integration','azure']
 lead: "When I needed to run Jenkins for a personal project I decided to use a Docker image. Surprisingly it was very simple to do and I'll explain what it was that I did"
