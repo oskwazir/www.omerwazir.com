@@ -55,13 +55,13 @@ html(lang="en")
     // Markup
     .row.navigation-bar
       .col-sm-3.navigation-header
-        a.site-title.spacedHeading.sans-serif(href="/") Omer Wazir
+        a.site-title.spacedHeading(href="/") Omer Wazir
       .col-sm-9
         ul.list-inline.site-pages
             each doc in getCollection('pages').toJSON()
               - clazz = (document.url === doc.url) ? 'active' : null
               li(typeof="sioc:Page", about=doc.url, class=clazz)
-                a.spacedHeading.sans-serif(href=doc.url, property="dc:title")= doc.title
+                a.site-pages.spacedHeading(href=doc.url, property="dc:title")= doc.title
     //-nav.navbar.navbar-inverse
       .container
         .navbar-header
@@ -76,8 +76,9 @@ html(lang="en")
                 a.spacedHeading.sans-serif(href=doc.url, property="dc:title")= doc.title
     .container.blog-main
       .row
-        .col-sm-12.blog-main
-          section!= content       
+        .col-md-10.blog-main
+          section!= content
+        .col-md-2
     // Scripts
     script.
      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -9,20 +9,33 @@ creamy= #FCFAE1
 tan= #BD8D46
 lightGrey=#EFF2F5
 white= #FFF
-sans-serif-family= "freight-sans-pro","Avenir Next","Helvetica Neue", Helvetica, Arial, sans-serif
-serif-family= "ff-tisa-web-pro",Georgia, "Times New Roman", Times, serif
+sans-serif-family= "comenia-sans-web","Avenir Next","Helvetica Neue", Helvetica, Arial, sans-serif
+header-family=,"katarine-web","Avenir Next","Helvetica Neue", Helvetica, Arial, sans-serif
+mono-family= "fira-mono",Menlo,Monaco,Consolas,"Courier New",monospace
+
+code, kbd, pre, samp
+  font-family mono-family
+
+body, .sans-serif 
+  font-family sans-serif-family  
+
+.site-title,.site-pages,h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
+  font-family header-family
 
 body 
-  font-family sans-serif-family
   color #444
   background-color white
 
 .jumbotron
   background-color white
 
-pre
+pre,code
   background-color creamy
+  color #333
+
+pre
   border 1px solid paleYellow
+  
 
 .line-through
   text-decoration line-through
@@ -53,7 +66,7 @@ pre
   color creamy
   text-decoration none
 
-/* Small devices (tablets, 768px and up) */
+/* Small devices (tablets, 768px and down) */
 @media (max-width: 768px)
   
   .navigation-header
@@ -79,12 +92,8 @@ pre
 
 h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
   margin-top 0
-  font-weight 500
+  font-weight 700
   color #333
-
-.sans-serif, h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
-  font-family sans-serif-family
-
 
 article
   border-bottom 1px solid #f0f0f0
@@ -97,11 +106,17 @@ article
 .blog-post, .archivedPost
   transition all 0.3s ease-out
 
+blockquote
+  font-size 22px
+  font-style italic
+  font-color #555
+
 .archivedPost
   color #555
   text-decoration none
   display block
   padding 2em 1em
+  font-size 1.4em
   &:hover 
     color #222
     text-decoration none
@@ -154,10 +169,12 @@ article
  * Blog name and description
  */
 
+.post-content
+  font-size 1.4em
+
 .blog-main 
   padding-top 20px
   padding-bottom 20px
-  font-size 18px
   line-height 1.5
 
 .blog-description 
