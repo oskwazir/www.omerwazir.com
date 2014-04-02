@@ -3,7 +3,7 @@ title: Ask HN: Can you be a great developer if you don’t program in your free 
 layout: post
 tags: ['git','cheat-sheet','post']
 lead: "I posted an answer to this question on Hacker News but I feel like there’s more I need to explain."
-date: 2014-03-28 21:14:40
+date: 2014-04-01 19:52:40
 ---
 
 ### [My original answer](https://news.ycombinator.com/item?id=7475549)
