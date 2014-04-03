@@ -11,15 +11,18 @@ lightGrey=#EFF2F5
 white= #FFF
 sans-serif-family= "jaf-bernina-sans","Avenir Next","Helvetica Neue", Helvetica, Arial, sans-serif
 mono-family= "fira-mono",Menlo,Monaco,Consolas,"Courier New",monospace
+header-family= "jaf-bernina-sans-condensed", sans-serif-family
 
 code, kbd, pre, samp
   font-family mono-family
 
-body, .sans-serif,.site-title,.site-pages,h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
-  font-family sans-serif-family  
+.pop, .site-title,.site-pages,h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
+  font-family header-family
+  font-weight 600
 
 body 
   color #444
+  font-family sans-serif-family  
   background-color white
   
 .jumbotron
@@ -36,12 +39,6 @@ pre
 .line-through
   text-decoration line-through
 
-
-.archived-heading, .blog-post-meta
-  font-weight 500
-
-
-
 .navigation-bar
   background-color red
   border-color red
@@ -50,7 +47,6 @@ pre
 
 .navigation-bar
   font-size 1.2em
-  font-weight 500
   &:hover
     text-decoration none
 
@@ -90,7 +86,6 @@ pre
 
 h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
   margin-top 0
-  font-weight 700
   color #333
 
 article
@@ -185,10 +180,6 @@ blockquote
 
 .blog-post 
   margin-bottom 60px
-
-.archived-heading, .blog-post-title, .page-title
-    font-weight 700
-    font-style italic
 
 .blog-post-title, .page-title
   margin-bottom 16px
