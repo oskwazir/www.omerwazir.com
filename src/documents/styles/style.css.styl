@@ -82,10 +82,9 @@ blockquote
   .site-pages > li:nth-child(2)
     float right !important
 
-.blog-post
+.blog-post, blog-page
   border-bottom subtleBorder
   padding 20px 0px
-  margin-bottom 20px
 
 .archiveList li
   border-bottom subtleBorder
@@ -94,7 +93,7 @@ blockquote
    &:last-child
     border-bottom none
 
-.blog-post, .archivedPost
+.blog-post, .archivedPost, .blog-page
   transition all 0.3s ease-out
 
 .archivedPost
@@ -109,16 +108,13 @@ blockquote
     background-color lightGrey
     border-radius 2px
 
-.white-text
-  color white
-
 .spacedapart
   letter-spacing 2px
 
-.post-content
+.post-content, .page-content
   font-size 1.2em
 
-.blog-post-title, .page-title
+.blog-post-title, .page-title, .blog-post, blog-page
   margin-bottom 16px
 
 /* Small devices (tablets, 768px and up) */
