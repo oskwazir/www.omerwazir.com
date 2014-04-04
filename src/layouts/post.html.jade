@@ -3,9 +3,9 @@ layout: default
 ---
 
 article.blog-post
-  h1.blog-post-title.condensedHeading= document.title
-  p.blog-post-meta.pop.spacedHeading.sans-serif= document.humanDate
-  p.lead.blog-post-lead.sans-serif= document.lead
+  h1.blog-post-title= document.title
+  p.blog-post-date.pop.spacedapart= document.humanDate
+  p.lead.blog-post-lead= document.lead
   .post-content!= content
 
 #disqus_thread

@@ -9,39 +9,43 @@ creamy= #FCFAE1
 tan= #BD8D46
 lightGrey=#EFF2F5
 white= #FFF
+textGrey= #444
 sans-serif-family= "jaf-bernina-sans","Avenir Next","Helvetica Neue", Helvetica, Arial, sans-serif
 header-family= "jaf-bernina-sans-condensed", sans-serif-family
+subtleBorder= 1px solid #f0f0f0
 
 .pop, .site-title,.site-pages,h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
   font-family header-family
   font-weight 600
 
 body 
-  color #444
   font-family sans-serif-family  
-  background-color white
-  
-.jumbotron
+
+body,pre,code, h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6  
+  color textGrey
+
+body,.jumbotron
   background-color white
 
 pre,code
   background-color creamy
-  color #333
 
 pre
   border 1px solid paleYellow
-  
+
+blockquote
+  font-size 1.2em
+  font-style italic
+
+.pop
+  color red   
 
 .line-through
   text-decoration line-through
 
 .navigation-bar
   background-color red
-  border-color red
   padding 20px 35px
-
-
-.navigation-bar
   font-size 1.2em
   &:hover
     text-decoration none
@@ -67,8 +71,6 @@ pre
     text-align center    
 
   .navigation-bar
-    background-color red
-    border-color red
     padding 20px 20px
 
   .site-title
@@ -80,83 +82,41 @@ pre
   .site-pages > li:nth-child(2)
     float right !important
 
-h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
-  margin-top 0
-  color #333
-
-article
-  border-bottom 1px solid #f0f0f0
+.blog-post
+  border-bottom subtleBorder
   padding-bottom 60px
   margin-bottom 20px
 
 .archiveList li
-  border-bottom 1px solid #f0f0f0
+  border-bottom subtleBorder
+
+.archiveList li
+   &:last-child
+    border-bottom none
 
 .blog-post, .archivedPost
   transition all 0.3s ease-out
 
-blockquote
-  font-size 22px
-  font-style italic
-  font-color #555
-
 .archivedPost
-  color #555
+  color textGrey
   text-decoration none
   display block
   padding 2em 1em
   font-size 1.4em
   &:hover 
-    color #222
+    color textGrey
     text-decoration none
-    background-color rgba(250, 250, 250, 0.15)
+    background-color lightGrey
     border-radius 2px
 
 .white-text
-  color #fff
+  color white
 
 .condensedHeading
   letter-spacing -1px
 
-.spacedHeading, .blog-post h3
+.spacedapart, .blog-post h3
   letter-spacing 2px
-
-.archiveList li
-   &:last-child
-    border-bottom none
-    
-
-
-/*
- * Override Bootstrap's default container.
- */
-
-// @media (min-width 1200px) 
-//   .container 
-//     width 970px
-
-/* Active state gets a caret at the bottom */
-.blog-nav .active 
-  color #fff
-
-.blog-nav .activeafter 
-  position absolute
-  bottom 0
-  left 50%
-  width 0
-  height 0
-  margin-left -5px
-  vertical-align middle
-  content " "
-  border-right  5px solid transparent
-  border-bottom 5px solid
-  border-left   5px solid transparent
-
-
-
-/*
- * Blog name and description
- */
 
 .post-content
   font-size 1.2em
@@ -166,27 +126,12 @@ blockquote
   padding-bottom 20px
   line-height 1.5
 
-.blog-description 
-  font-size 20px
-  color #999
-
-/*
- * Blog posts
- */
-
-.blog-post 
-  margin-bottom 60px
-
 .blog-post-title, .page-title
   margin-bottom 16px
-
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px)
   .blog-post-title, .page-title
     font-size 2.8em
-  .blog-post-meta
+  .blog-post-date
     font-size 1.4em
-
-.pop
-  color red 

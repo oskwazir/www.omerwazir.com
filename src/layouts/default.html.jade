@@ -55,25 +55,13 @@ html(lang="en")
     // Markup
     .row.navigation-bar
       .col-sm-3.navigation-header
-        a.site-title.spacedHeading(href="/") Omer Wazir
+        a.site-title.spacedapart(href="/") Omer Wazir
       .col-sm-9
         ul.list-inline.site-pages
             each doc in getCollection('pages').toJSON()
               - clazz = (document.url === doc.url) ? 'active' : null
               li(typeof="sioc:Page", about=doc.url, class=clazz)
-                a.site-pages.spacedHeading(href=doc.url, property="dc:title")= doc.title
-    //-nav.navbar.navbar-inverse
-      .container
-        .navbar-header
-         //-button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
-            span.spacedHeading.white-text menu
-        a.navbar-brand.spacedHeading.sans-serif(href="/") OmerWazir.com
-        .hidden-xs.collapse.navbar-collapse.navbar-left
-          ul.nav.navbar-nav
-            each doc in getCollection('pages').toJSON()
-              - clazz = (document.url === doc.url) ? 'active' : null
-              li(typeof="sioc:Page", about=doc.url, class=clazz)
-                a.spacedHeading.sans-serif(href=doc.url, property="dc:title")= doc.title
+                a.site-pages.spacedapart(href=doc.url, property="dc:title")= doc.title
     .container.blog-main
       .row
         .col-md-10.blog-main
