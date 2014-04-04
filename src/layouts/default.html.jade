@@ -62,9 +62,9 @@ html(lang="en")
               - clazz = (document.url === doc.url) ? 'active' : null
               li(typeof="sioc:Page", about=doc.url, class=clazz)
                 a.site-pages.spacedapart(href=doc.url, property="dc:title")= doc.title
-    .container.blog-main
+    .container
       .row
-        .col-md-10.blog-main
+        .col-md-10
           section!= content
         .col-md-2
     // Scripts
