@@ -1,8 +1,8 @@
 ---
 title: About Me
-layout: page
-tags: ['about','page']
-pageOrder: 1
+layout: post
+tags: ['about','post']
+date: 2014-03-31 22:59:23
 ---
 
 ##I'm Omer <small>(sounds like boomer without the “B” <span class="line-through">b</span>oomer)</small>
