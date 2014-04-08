@@ -14,7 +14,7 @@ sans-serif-family= "jaf-bernina-sans","Avenir Next","Helvetica Neue", Helvetica,
 header-family= "jaf-bernina-sans-condensed", sans-serif-family
 subtleBorder= 1px solid #f0f0f0
 
-.pop, .site-title,.site-pages,h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
+.pop, .site-title,.site-page,h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6 
   font-family header-family
   font-weight 600
 
@@ -49,23 +49,32 @@ blockquote
 .line-through
   text-decoration line-through
 
+.site-title, .site-page
+  font-size 2rem
+
+.site-title  
+  line-height 55px
+
 .navigation-bar
   background-color red
   padding 20px 35px
   font-size 1.2em
-  margin 0px
+  margin 0 0 25px 0
   &:hover
     text-decoration none
 
-.site-pages
+.site-page-list
   float right !important;
 
-.site-pages > li:nth-child(2)
+.site-page-list > li:nth-child(2)
   margin-left 2em
   
-.site-title, .site-title:hover, .site-pages > li >a
+.site-title, .site-title:hover, .site-page, .site-page:hover
   color creamy
   text-decoration none
+
+.site-page
+  line-height 55px
 
 /* Small devices (tablets, 768px and down) */
 @media (max-width: 768px)
@@ -83,10 +92,13 @@ blockquote
   .site-title
     margin-bottom 25px
 
-  .site-pages
+  .site-page
+    line-height 24px
+
+  .site-page-list
     float none !important  
 
-  .site-pages > li:nth-child(2)
+  .site-page-list > li:nth-child(2)
     float right !important
 
   .lead
@@ -115,7 +127,7 @@ blockquote
   &:hover 
     color textGrey
     text-decoration none
-    background-color lightGrey
+    background-color creamy
     border-radius 2px
 
 .spacedapart
