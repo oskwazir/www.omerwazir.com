@@ -27,18 +27,14 @@ body,pre,code, h1, .h1,h2, .h2,h3, .h3,h4, .h4h5, .h5,h6, .h6
 body,.jumbotron
   background-color white
 
-pre,code
+pre,code, .archivedPost:hover
   background-color creamy
 
 pre
   border 1px solid paleYellow
 
 blockquote
-  font-size 1.2em
   font-style italic
-
-.container
-  width 970px
 
 .lead
   font-weight 400
@@ -49,7 +45,12 @@ blockquote
 .line-through
   text-decoration line-through
 
-.site-title, .site-page
+.blog-post-title, .page-title
+  font-size 40px
+  font-size 4rem  
+
+blockquote, .site-title, .site-page, .blog-post-date, .archivedPost
+  font-size 20px
   font-size 2rem
 
 .site-title  
@@ -58,7 +59,6 @@ blockquote
 .navigation-bar
   background-color red
   padding 20px 35px
-  font-size 1.2em
   margin 0 0 25px 0
   &:hover
     text-decoration none
@@ -75,6 +75,11 @@ blockquote
 
 .site-page
   line-height 55px
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 992px)
+  .container
+    width 970px
 
 /* Small devices (tablets, 768px and down) */
 @media (max-width: 768px)
@@ -101,8 +106,9 @@ blockquote
   .site-page-list > li:nth-child(2)
     float right !important
 
-  .lead
-    font-size 1.2em
+  .lead, .post-content, .page-content
+    font-size 16px
+    font-size 1.6rem
 
 .blog-post, blog-page
   border-bottom subtleBorder
@@ -123,30 +129,13 @@ blockquote
   text-decoration none
   display block
   padding 2em 1em
-  font-size 1.4em
   &:hover 
     color textGrey
     text-decoration none
-    background-color creamy
     border-radius 2px
 
 .spacedapart
   letter-spacing 2px
 
-.post-content, .page-content
-  font-size 1.2em
-
 .blog-post-title, .page-title, .blog-post, blog-page
   margin-bottom 16px
-
-.blog-post-title, .page-title
-  font-size 2.8em
-.blog-post-date
-  font-size 1.4em
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px)
-  .blog-post-title, .page-title
-    font-size 2.8em
-  .blog-post-date
-    font-size 1.4em
