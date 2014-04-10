@@ -8,42 +8,19 @@
 // @lightGrey:#EFF2F5;
 @white: #FFF;
 @textGrey: #444;
-@sans-serif-family: "jaf-bernina-sans","Avenir Next","Helvetica Neue", Helvetica, Arial, sans-serif;
-@header-family: "jaf-bernina-sans-condensed", @sans-serif-family;
 @subtleBorder: 1px solid #f0f0f0;
 
-.pop, .site-title,.site-page,h1, .h1,h2, .h2,h3, .h3,h4, .h4,h5, .h5,h6, .h6{
-  font-family: @header-family;
-  font-weight: 600;
+.pop, .site-title,.site-page,{
+  font-family: @headings-font-family;
+  font-weight: @headings-font-weight;
 }
-
-body{ 
-  font-family: @sans-serif-family;  
-}
-
-body,pre,code, h1, .h1,h2, .h2,h3, .h3,h4, .h4, h5, .h5,h6, .h6{
-  color: @textGrey;
-}
-
-body,.jumbotron{
-  background-color: @white;
-}
-
 pre,code, .archivedPost:hover{
-  background-color: @creamy;
+  background-color: @gray-lighter;
 }
 
-pre{
-  border: 1px solid @paleYellow;
-}
-
-blockquote{
-  font-style: italic;
-}
-
-.lead{
-  font-weight: 400;
-}
+// pre{
+//   border: 1px solid @paleYellow;
+// }
 
 .pop{
   color: @red;   
@@ -57,7 +34,7 @@ blockquote{
   font-size: 40px;
   font-size: 4rem; 
 }
-blockquote, .site-title, .site-page, .blog-post-date, .archivedPost, .post-content, .page-content{
+ blockquote, .site-title, .site-page, .blog-post-date, .archivedPost { //.post-content, .page-content
   font-size: 20px;
   font-size: 2rem;
 }
@@ -130,10 +107,10 @@ blockquote, .site-title, .site-page, .blog-post-date, .archivedPost, .post-conte
     float: right !important;
   }
 
-  .lead, .post-content, .page-content{
-    font-size: 16px;
-    font-size: 1.6rem;
-  }
+  // .lead, .post-content, .page-content{
+  //   font-size: 16px;
+  //   font-size: 1.6rem;
+  // }
 }
 
 .blog-post, blog-page{
