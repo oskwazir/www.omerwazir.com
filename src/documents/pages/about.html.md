@@ -52,3 +52,10 @@ I'm a software developer in Tucson, Arizona. I can speak three languages - Engli
 * Mass Effect Series
 
 ###The Broncos.
+
+<!-- 
+MDN profile https://developer.mozilla.org/en-US/profiles/OWaz
+Github https://github.com/thewazir
+StackOverflow https://stackoverflow.com/users/1650294/owaz
+Twitter https://twitter.com/thewazir
+-->
