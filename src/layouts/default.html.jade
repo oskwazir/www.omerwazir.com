@@ -57,7 +57,7 @@ html(lang="en")
             each doc in getCollection('pages').toJSON()
               - clazz = (document.url === doc.url) ? 'active' : null
               li(typeof="sioc:Page", about=doc.url, class=clazz)
-                a.site-page.spacedapart(href=doc.url, property="dc:title")= doc.title
+                a.site-page(href=doc.url, property="dc:title")= doc.title
     .container
       .row
         .col-md-12
