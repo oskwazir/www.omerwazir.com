@@ -18,6 +18,7 @@ I'm a software developer in Tucson, Arizona. I can speak three languages - Engli
 * [Sublime Text](http://www.sublimetext.com/2) I do most of my work now in Sublime Text. I'm not a power user when it comes to text editors. The most power I get is from having [Emmet](http://emmet.io/) installed and the ability to select and edit multiple things at once with `Ctrl-D`.
 * [Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html)
 * [Firefox Aurora](http://www.mozilla.org/en-US/firefox/aurora/?WT.mc_id=fa10sn)
+* [Typekit](https://typekit.com/)
 
 ####Linux
 * [Docker](https://www.docker.io/) Docker has made it really easy for me to install and run applications on Linux.
