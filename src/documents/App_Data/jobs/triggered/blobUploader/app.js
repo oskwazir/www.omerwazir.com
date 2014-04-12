@@ -1,1 +1,1 @@
-console.log("Blob Uploading Rocks!");
+var azure = require('azure');
