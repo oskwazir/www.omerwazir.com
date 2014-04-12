@@ -29,6 +29,8 @@
     "npm": "1.1.x"
   },
   "dependencies": {
+    "async": "^0.7.0",
+    "azure": "^0.9.3",
     "bower": "~1",
     "docpad": "~6.63.7",
     "docpad-plugin-cleanurls": "~2.7.0",
