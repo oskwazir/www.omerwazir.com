@@ -1,7 +1,6 @@
 var azure = require('azure');
 var async = require('async');
 var blobService = azure.createBlobService();
-var util = require('util');
 var crypto = require('crypto');
 var fs = require('fs');
 var cssFile = '../../../../styles/style.css';
@@ -22,12 +21,12 @@ async.waterfall([
         
         readStream.on('data',function(chunk){
             hash.update(chunk)
-          })
+        })
 
         readStream.on('end', function() {
-                hash.end();
-                var md5sum = hash.read();
-                if(blob.contentMD5 !== md5sum ){
+            hash.end();
+            var md5sum = hash.read();
+            if(blob.contentMD5 !== md5sum ){
                     // FILES DON'T MATCH
                     // SEND FILE TO BLOB STORAGE
                     /*
@@ -39,49 +38,13 @@ async.waterfall([
                           }
                         });
                     */
-                } else {
-                    // DO NOTHING AND STOP.
-                }
-                callback(null, 'done');
+                callback(null, 'PUT BLOB');
+            } else {
+                callback(null, 'FILES MATCH');
+            }
         });
     }
 ], function (err, result) {
    console.log('Result:' + result); 
 });
 
-// //the file you want to get the hash    
-// var fz = fs.createReadStream(cssFile);
-
-// fz.on('end', function() {
-//     hash.end();
-//     console.log("global hash reading: " + hash.read());
-// });
-
-// fz.pipe(hash);
-
-// /************
-// *************/
-
-// function setBlobMD5(error,blob){
-//     if(error) {
-//         console.log('Error: ' + error);
-//         return null;
-//     }
-    
-//     if(blob){
-//         blobMD5 = blob.contentMD5;
-//     }
-// }
-
-// //***************************************
-
-var uploadToCDN = function(md5){
-    console.log('md5: ' + md5);
-   
-}
-
-// var getBlobMD5 = function(){
-
-//     blobService.getBlobProperties('css', 'omerwazir.css',setBlobMD5)
-
-// }
