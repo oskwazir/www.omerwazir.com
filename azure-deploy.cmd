@@ -116,7 +116,7 @@ echo Install Web Job Dependencies
 pushd "%WEBJOBS_TARGET%"
 call !NPM_CMD! install
 echo Copying CSS Files
-copy "%DEPLOYMENT_TARGET%\styles\styles.css" "%WEBJOBS_TARGET%"
+copy "%DEPLOYMENT_TARGET%\styles\style.css" "%WEBJOBS_TARGET%"
 IF !ERRORLEVEL! NEQ 0 goto error
 popd
 
