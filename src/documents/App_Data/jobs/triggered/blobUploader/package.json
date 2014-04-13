@@ -1,0 +1,28 @@
+{
+  "name": "blobUploader",
+  "version": "0.0.1",
+  "description": "Uploads resource files to CDN",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thewazir/www.omerwazir.com.git"
+  },
+  "keywords": [
+    "Azure",
+    "Blob",
+    "Storage",
+    "Uploader"
+  ],
+  "author": "Omer Wazir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thewazir/www.omerwazir.com/issues"
+  },
+  "homepage": "https://github.com/thewazir/www.omerwazir.com",
+  "dependencies": {
+    "azure": "^0.9.3"
+  }
+}
