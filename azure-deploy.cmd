@@ -114,13 +114,14 @@ IF !ERRORLEVEL! NEQ 0 goto error
 :: 4. Copy CSS to Web Jobs
 pushd "%DEPLOYMENT_TARGET%\styles"
 echo Copying CSS Files to Web Jobs
-copy ./style.css "%WEBJOBS_TARGET%"
+dir
 IF !ERRORLEVEL! NEQ 0 goto error
 popd
 
 :: 5. Web Jobs Management
 echo Install Web Job Dependencies
 pushd "%WEBJOBS_TARGET%"
+dir
 call !NPM_CMD! install
 IF !ERRORLEVEL! NEQ 0 goto error
 popd
