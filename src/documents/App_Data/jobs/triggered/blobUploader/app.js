@@ -27,24 +27,23 @@ async.waterfall([
             hash.end();
             var md5sum = hash.read();
             if(blob.contentMD5 !== md5sum ){
-                    // FILES DON'T MATCH
-                    // SEND FILE TO BLOB STORAGE
-                    /*
-                     blobService.putBlockBlobFromFile('css', 'omerwazir.css', cssFile, {contentType: 'text/css', contentMD5: md5}, function(error) {
+                    // Files don't match so PUT file to container
+                     blobService.putBlockBlobFromFile('css', 'omerwazir.css', cssFile,
+                      {contentType: 'text/css'}, function(error, blockBlob, response) {
                           if(!error) {
-                            console.log('omerwazir.css uploaded');
+                            callback(null, blockBlob.blob + ' PUT to container ' + 
+                                blockBlob.container + ' response: ' + response.statusCode) ;
                           } else {
-                            console.error('Error: ' + error);
+                            callback(error);
                           }
                         });
-                    */
-                callback(null, 'PUT BLOB');
             } else {
-                callback(null, 'FILES MATCH');
+                callback(null, 'Files match, nothing was uploaded');
             }
         });
     }
 ], function (err, result) {
+    if(err) console.error('Error: '+ err );
    console.log('Result:' + result); 
 });
 
