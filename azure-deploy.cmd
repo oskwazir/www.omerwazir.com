@@ -115,8 +115,8 @@ IF !ERRORLEVEL! NEQ 0 goto error
 echo Install Web Job Dependencies
 pushd "%WEBJOBS_TARGET%"
 call !NPM_CMD! install
-echo Copying CSS Files
-copy "%DEPLOYMENT_TARGET%\styles\style.css" "%WEBJOBS_TARGET%"
+echo Printing Tree of DEPLOYMENT_TARGET
+tree "%DEPLOYMENT_TARGET%" /f
 IF !ERRORLEVEL! NEQ 0 goto error
 popd
 
