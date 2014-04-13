@@ -38,7 +38,7 @@ IF NOT DEFINED NEXT_MANIFEST_PATH (
 )
 
 IF NOT DEFINED WEBJOBS_TARGET (
-  SET WEBJOBS_TARGET=%ARTIFACTS%\wwwroot\App_Data\jobs\triggered\blobUploader
+  SET WEBJOBS_TARGET=%DEPLOYMENT_TARGET%\App_Data\jobs\triggered\blobUploader
 )
 
 
