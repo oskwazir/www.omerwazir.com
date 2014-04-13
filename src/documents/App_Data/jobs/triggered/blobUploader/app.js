@@ -5,7 +5,7 @@ var through = require('through');
 var crypto = require('crypto');
 var fs = require('fs');
 
-var cssFile = '../../../../styles/style.css';
+var cssFile = './style.css';
 
 async.waterfall([
     function(callback){
