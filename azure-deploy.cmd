@@ -106,6 +106,12 @@ echo Copying Files...
 call %KUDU_SYNC_CMD% -v 500 -i "drafts" -f "%DEPLOYMENT_SOURCE%\out" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%"
 IF !ERRORLEVEL! NEQ 0 goto error
 
+:: 4. Web Jobs Management
+echo Install Web Job Dependencies
+pushd "%DEPLOYMENT_TARGET%\App_Data\jobs\triggered\blobUploader"
+call !NPM_CMD! install
+IF !ERRORLEVEL! NEQ 0 goto error
+popd
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
