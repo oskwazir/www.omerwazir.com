@@ -1,0 +1,13 @@
+---
+title: How to create a CDN on Azure
+layout: post
+tags: ['azure','storage','cdn']
+lead: "I'll explain how I used Azure's blob storage and CDN service to serve images and stylesheets for this website."
+date: 2014-04-14 17:28:24
+---
+###Creating Blob Storage
+####Containers
+####Geo Storage is not a CDN
+###Create CDN Service
+###Update DNS with CNAME for DNS
+###Wait about an hour
