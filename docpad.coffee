@@ -28,25 +28,21 @@ docpadConfig =
     # Specify some site properties
     site:
       # The production url of our website
-      url: "http://website.com"
-
-      # Here are some old site urls that you would like to redirect from
-      oldUrls: [
-        'www.website.com',
-        'website.herokuapp.com'
-      ]
+      url: "http://www.omerwazir.com"
 
       # The default title of our website
       title: "Omer Wazir"
 
+      cssUrI:'http://cdn.omerwazir.com/css/omerwazir.css'
+
       # The website description (for SEO)
       description: """
-        Software developer living in Tucson Arizona.
+        Software engineer living in Tucson Arizona.
         """
 
       # The website keywords (for SEO) separated by commas
       keywords: """
-        place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
+        software, development, nodejs, javascript, html, css, azure,
         """
 
       # The website author's name
@@ -101,9 +97,12 @@ docpadConfig =
     # http://www.ewal.net/2013/10/13/draft-posts-with-docpad/
   environments:
       development:
-          collections:
-              posts: (database) ->
-                  database.findAllLive({relativeDirPath: {'$in' : ['posts', 'drafts']}}, [relativeDirPath: 1,  date: -1])
+        templateData:
+          site:
+            cssUrI: '/styles/style.css'
+        collections:
+          posts: (database) ->
+            database.findAllLive({relativeDirPath: {'$in' : ['posts', 'drafts']}}, [relativeDirPath: 1,  date: -1])
 
 
   # DocPad Events

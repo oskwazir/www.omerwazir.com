@@ -37,6 +37,11 @@ IF NOT DEFINED NEXT_MANIFEST_PATH (
   )
 )
 
+IF NOT DEFINED WEBJOBS_TARGET (
+  SET WEBJOBS_TARGET=%DEPLOYMENT_TARGET%\App_Data\jobs\triggered\blobUploader
+)
+
+
 IF NOT DEFINED KUDU_SYNC_CMD (
   :: Install kudu sync
   echo Installing Kudu Sync
@@ -105,6 +110,21 @@ popd
 echo Copying Files...
 call %KUDU_SYNC_CMD% -v 500 -i "drafts" -f "%DEPLOYMENT_SOURCE%\out" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%"
 IF !ERRORLEVEL! NEQ 0 goto error
+
+:: 4. Copy CSS to Web Jobs
+pushd "%DEPLOYMENT_TARGET%\styles"
+echo Copying CSS Files to Web Jobs
+copy style.css "%WEBJOBS_TARGET%" /y /v
+IF !ERRORLEVEL! NEQ 0 goto error
+popd
+
+:: 5. Web Jobs Management
+echo Install Web Job Dependencies
+pushd "%WEBJOBS_TARGET%"
+dir
+call !NPM_CMD! install
+IF !ERRORLEVEL! NEQ 0 goto error
+popd
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

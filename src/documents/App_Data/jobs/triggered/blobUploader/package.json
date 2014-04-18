@@ -1,0 +1,16 @@
+{
+  "name": "blobUploader",
+  "version": "0.0.0",
+  "description": "Upload Files to Azure Blob Storage",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Omer Wazir",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^0.7.0",
+    "azure": "^0.9.3",
+    "through": "^2.3.4"
+  }
+}
