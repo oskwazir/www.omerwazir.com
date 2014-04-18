@@ -121,10 +121,12 @@ popd
 :: 5. Web Jobs Management
 echo Install Web Job Dependencies
 pushd "%WEBJOBS_TARGET%"
-dir
 call !NPM_CMD! install
+echo Running BlobUploader
+call "!NODE_EXE!" app.js
 IF !ERRORLEVEL! NEQ 0 goto error
 popd
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
