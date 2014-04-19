@@ -33,8 +33,8 @@ docpadConfig =
       # The default title of our website
       title: "Omer Wazir"
 
-      cssUri: '/styles/style.css'
-      #cssUrI:'http://cdn.omerwazir.com/css/omerwazir.css'
+      cssURI: '/styles/style.css'
+      #cssURI:'http://cdn.omerwazir.com/css/omerwazir.css'
 
       # The website description (for SEO)
       description: """
@@ -100,7 +100,7 @@ docpadConfig =
       development:
         templateData:
           site:
-            cssUrI: '/styles/style.css'
+            cssURI: '/styles/style.css'
         collections:
           posts: (database) ->
             database.findAllLive({relativeDirPath: {'$in' : ['posts', 'drafts']}}, [relativeDirPath: 1,  date: -1])
