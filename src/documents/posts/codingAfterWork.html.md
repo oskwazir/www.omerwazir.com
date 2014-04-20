@@ -6,7 +6,7 @@ lead: "I posted an answer to this question on Hacker News but I feel like there�
 date: 2014-04-01 19:52:40
 ---
 
-### [My original answer](https://news.ycombinator.com/item?id=7475549)
+[My original answer](https://news.ycombinator.com/item?id=7475549)
 
 > You will probably have a higher chance of developing technical skills if you take some time to study and code during your free time. You shouldn’t depend on your job to train you on new languages or frameworks. There are a lot of things you and I don’t know and we won’t have time to learn about them while at work.
 
