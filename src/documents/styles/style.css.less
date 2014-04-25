@@ -10,9 +10,12 @@
 @textGrey: #444;
 @subtleBorder: 1px solid #f0f0f0;
 
-.pop, .site-title,.site-page,{
+body,.pop, .site-title,.site-page{
+  font-weight: 300;
+}
+
+.pop, .site-title,.site-page{
   font-family: @headings-font-family;
-  font-weight: 400;
 }
 pre,code, .archivedPost:hover{
   background-color: @gray-lighter;
@@ -149,7 +152,7 @@ pre,code, .archivedPost:hover{
 }
 
 .spacedapart{
-  letter-spacing: 1px;
+  letter-spacing: 0.04rem;
 }
 
 .blog-post-title, .page-title, .blog-post, blog-page{
