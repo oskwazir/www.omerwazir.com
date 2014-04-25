@@ -2,12 +2,12 @@
 title: The Git Cheat Sheet
 layout: post
 tags: ['git','cheat-sheet','post']
-lead: "Here’s a great cheet sheet for git that’ll help you figure out some pretty cool tasks"
+lead: "Here's a great cheet sheet for git that'll help you figure out some pretty cool tasks"
 date: 2014-03-04 14:18:30
 ---
 
 
-I initially found this at [Github](https://help.github.com/articles/git-cheatsheet) and it’s identical to [cheat.errtheblog](http://cheat.errtheblog.com/s/git).
+I initially found this at [Github](https://help.github.com/articles/git-cheatsheet) and it's identical to [cheat.errtheblog](http://cheat.errtheblog.com/s/git).
 
 ---
 
