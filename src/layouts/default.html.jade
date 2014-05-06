@@ -42,18 +42,19 @@ html(lang="en")
   body
 
     // Markup
-    .row.navigation-bar
-      .col-sm-3.navigation-header
-        a.site-title.spacedapart(href="/") OMER WAZIR
-      .col-sm-9
-        ul.list-inline.site-page-list
-            each doc in getCollection('pages').toJSON()
-              - clazz = (document.url === doc.url) ? 'active' : null
-              li(typeof="sioc:Page", about=doc.url, class=clazz)
-                a.site-page(href=doc.url, property="dc:title")= doc.title
     .container
       .row
-        .col-md-12
+        .col-sm-3
+          .row.navigation-bar
+            .col-sm-3.navigation-header
+              a.site-title.spacedapart(href="/") OMER WAZIR
+            .col-sm-9
+              ul.list-inline.site-page-list
+                  each doc in getCollection('pages').toJSON()
+                    - clazz = (document.url === doc.url) ? 'active' : null
+                    li(typeof="sioc:Page", about=doc.url, class=clazz)
+                      a.site-page(href=doc.url, property="dc:title")= doc.title
+        .col-sm-9
           section!= content
     // Scripts
     script.
