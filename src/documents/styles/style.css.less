@@ -88,9 +88,15 @@ pre,code, .archivedPost:hover{
     width: 970px;
   }
 }
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px){
+  .navigation-bar{
+    background-color: @red;
+  }
+}
 
 /* Small devices (tablets, 768px and down) */
-@media (max-width: 768px){
+@media (max-width: 767px){
   
   .navigation-header{
     text-align: center;
@@ -120,11 +126,6 @@ pre,code, .archivedPost:hover{
   .site-page-list > li:nth-child(2){
     float: right !important;
   }
-
-  // .lead, .post-content, .page-content{
-  //   font-size: 16px;
-  //   font-size: 1.6rem;
-  // }
 }
 
 .blog-post, blog-page{
