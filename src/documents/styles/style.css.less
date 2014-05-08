@@ -1,13 +1,8 @@
 @import "../../files/vendor/bootstrap/less/bootstrap.less";
-
-@red: #B9121B;
 @skyblue: #87CEEB;
 @cityblue: #132330;
-// *@maroon: #4C1B1B;
-@paleYellow: #F6E497;
+@lightsky: lighten(@skyblue, 25%);
 @creamy: #FCFAE1;
-// *@tan: #BD8D46;
-// @lightGrey:#EFF2F5;
 @white: #FFF;
 @textGrey: #444;
 @subtleBorder: 1px solid #f0f0f0;
@@ -20,7 +15,7 @@ body,.pop, .site-title,.site-page{
   font-family: @headings-font-family;
 }
 pre,code, .archivedPost:hover{
-  background-color: @gray-lighter;
+  background-color: @lightsky;
 }
 
 // pre{
@@ -82,6 +77,31 @@ pre,code, .archivedPost:hover{
   line-height: 55px;
 }
 
+.blog-post, blog-page{
+  border-bottom: @subtleBorder;
+  padding: 20px 0px;
+}
+
+.archivedPost{
+  color: @textGrey;
+  text-decoration: none;
+  display: block;
+  padding: 2em 1em;
+  &:hover{
+    color: @textGrey;
+    text-decoration: none;
+    border-radius: 2px;
+  }
+}
+
+.spacedapart{
+  letter-spacing: 0.04rem;
+}
+
+.blog-post-title, .page-title, .blog-post, blog-page{
+  margin-bottom: 16px;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 992px){
   .container{
@@ -90,15 +110,23 @@ pre,code, .archivedPost:hover{
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px){
+
+  .site-page{
+    line-height: 30px;
+  }
   .container{
     margin: 0px;
+  }
+  .blog-post, .blog-page{
+    margin-top:14px;
+    padding-left: 18px;
   }
   .content{
     border-left: 10px solid @skyblue;
   }
   .navigation-bar{
     background-color: #fff;
-    margin-top: 25px;
+    margin-top: 60px;
     padding:0px;
   }
 
@@ -150,37 +178,4 @@ pre,code, .archivedPost:hover{
   .site-page-list > li:nth-child(2){
     float: right !important;
   }
-}
-
-.blog-post, blog-page{
-  border-bottom: @subtleBorder;
-  padding: 20px 0px;
-}
-
-.archiveList li{
-  border-bottom: @subtleBorder;
-}
-
-.archiveList li:last-child{
-    border-bottom: none;
-}
-
-.archivedPost{
-  color: @textGrey;
-  text-decoration: none;
-  display: block;
-  padding: 2em 1em;
-  &:hover{
-    color: @textGrey;
-    text-decoration: none;
-    border-radius: 2px;
-  }
-}
-
-.spacedapart{
-  letter-spacing: 0.04rem;
-}
-
-.blog-post-title, .page-title, .blog-post, blog-page{
-  margin-bottom: 16px;
 }
