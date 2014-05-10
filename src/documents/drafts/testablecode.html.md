@@ -1,4 +1,11 @@
-##Reducing Complexity
+---
+title: Notes on Testable Javascript
+layout: post
+tags: ['docker','jenkins','continuous-integration','azure']
+lead: "I've written a collection of notes while reading Testable Javascript. Please don't assume what I've written is completely correct, these notes reflect my interpretation of the book's contents."
+date: 2014-05-10 12:37:24
+---
+###Reducing Complexity
 ###Command Query Separation
 Start writing smaller functions by separating the actions that a method peforms. Command query separation is about keeping commands and queries actions in different functions. Commands are functions that are similiar to <span class='italic'>setters</span> in that they <span class="italic">do</span> something. Queries then are similiar to <span class='italic'>getters</span> in that they <span class="italic">return</span> something. So you wouldn't want to combine <span class="italics">getters</span> and <span class="italics">setters</span> in one function. The benefit of this shows up once you try writing unit tests for functions where command query seperation was maintained. You'll end up being able to write tests that are focused for each function.
 
@@ -20,5 +27,18 @@ Try to rely on a library or framework instead of writing code that does the same
 Reusability also goes to your own code. You might have some code inside a function that converts GMT to Mountain Standard time. You might have another place in your code which converts Nepal Time to Tuvalu time. The code is probably nearly identical except for the timezones that are being converted from and to. Just write a timezone converter function that has it's logic in one place. And call that function from wherever you were converting time zones. That way if timezone calculations change you change the code in one place, not eleven different places.
 
 ###Fan-Out
-The number of dependencies your function directly and indirectly depends on or references. Dependencies are in the form of external modules or objects. Tight coupling can be seen in an object or function with high fan-out. To reduce tight coupling you can use dependency injection or eventing. To reduce fan-out you can use a [facade pattern](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#facadepatternjavascript). Testing code with high fan-out is difficult since mocking and stubbing dependencies is required. Yes really when you spend more time writing mocks and stubs you'll soon be making changes in your code. It's that obvious of a problem. 
- 
+The number of dependencies your function directly and indirectly depends on or references. Dependencies are in the form of external modules or objects. Tight coupling can be seen in an object or function with high fan-out. To reduce tight coupling you can use dependency injection or eventing. To reduce fan-out you can use a [facade pattern](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#facadepatternjavascript). Testing code with high fan-out is difficult since mocking and stubbing dependencies is required. Yes really when you spend more time writing mocks and stubs you'll soon be making changes in your code. It's that obvious of a problem.
+
+###Fan-In
+Think of fan-in as the inverse of fan-out. It counts how many modules reference. I've taken the official defintion of fan-in from the book Testable Javascript:
+
+ The fan-in of procedure A is the number of local flows into procedure A plus the number of data structures from which procedure A retrieves information.
+
+High fan-in should exist for common or utitlity functions, think of something like authorization checks,logging, formatting, conversions etc... Those are tasks that can be called from anywhere or called frequently. They should have high fan-in. Code that isn't called frequently such as intialization code should have low fan-in. The idea being that code that isn't utilized frequently shouldn't be called or depended on a lot by other modules.
+
+###Coupling
+So fan-out counts the number of dependencies a module has, coupling is the relationship between modules. From my experience tight coupling makes it really hard to edit code since changing one thing usually requires editing code in a bunch of other unrelatd places too. At first you'll wonder why in the world is this piece of code referenced all the way in this other place. And hey it's referenced here too but in a different way and it's not even used the way it's supposed to. Then you cry for a day or two and swear you'll never write tightly coupled code. Of course you don't write tightly coupled code. It's always someone else who did it and left you with a maintenance nightmare.
+
+####The six levels of coupling
+*
+
