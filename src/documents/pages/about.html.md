@@ -7,6 +7,7 @@ pageOrder: 1
 
 I'm Omer (sounds like boomer without the “B” <span class="line-through">b</span>oomer). I work as a software developer in Tucson, Arizona. I can speak three languages - English, Urdu and Pashto. I can read and write in English and Urdu. I've lived in the USA and Pakistan.
 
+<!--
 ###Favorite Books
 * [Professional JavaScript for Web Developers Third Edition](http://www.wrox.com/WileyCDA/WroxTitle/Professional-JavaScript-for-Web-Developers-3rd-Edition.productCd-1118026691.html) This was the book that taught me JavaScript. I still keep it at my desk as a reference.
 
@@ -51,7 +52,7 @@ I'm Omer (sounds like boomer without the “B” <span class="line-through">b</s
 * Mass Effect Series
 
 ###The Broncos.
-
+-->
 <!-- 
 MDN profile https://developer.mozilla.org/en-US/profiles/OWaz
 Github https://github.com/thewazir

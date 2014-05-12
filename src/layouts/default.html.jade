@@ -54,6 +54,10 @@ html(lang="en")
                     - clazz = (document.url === doc.url) ? 'active' : null
                     li(typeof="sioc:Page", about=doc.url, class=clazz)
                       a.site-page(href=doc.url, property="dc:title")= doc.title
+                  li
+                    a.site-page(href='https://github.com/thewazir') Github
+                  li 
+                    a.site-page(href='https://twitter.com/thewazir') Twitter
         .col-sm-9.content
           section!= content
     // Scripts
