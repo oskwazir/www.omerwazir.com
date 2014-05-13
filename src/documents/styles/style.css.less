@@ -75,7 +75,7 @@ pre,code, .archivedPost:hover{
     list-style: none outside none;
   }
 
-.site-page-list > li:nth-child(2){
+.site-page-list > li:nth-child(even){
   margin-left: 2em;
 }
   
@@ -186,7 +186,11 @@ pre,code, .archivedPost:hover{
     padding-right: 5px;
   }
 
-  .site-page-list > li:nth-child(2){
+  .site-page-list > li:nth-child(even){
     float: right !important;
+  }
+
+  .site-page-list > li:nth-child(n+3){
+    margin-top: 11px;
   }
 }
