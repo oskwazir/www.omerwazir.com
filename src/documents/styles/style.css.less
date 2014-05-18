@@ -47,17 +47,6 @@ pre,code, .archivedPost:hover{
   font-size: 18px;
   font-size: 1.8rem;
 }
-.post-content{
-  h2{
-    font-size: 3.5rem;
-    font-size: 35px;
-  }
-
-  h3 {
-    font-size: 3rem;
-    font-size: 30px;
-  }
-}
 .site-title{
   line-height: 55px;
   font-weight:900;
@@ -121,6 +110,18 @@ pre,code, .archivedPost:hover{
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px){
+
+.post-content{
+  h2{
+    font-size: 3rem;
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 2.6rem;
+    font-size: 26px;
+  }
+}
 
   .site-page{
     line-height: 30px;
@@ -186,8 +187,14 @@ pre,code, .archivedPost:hover{
     padding-right: 5px;
   }
 
+  .site-page-list > li:nth-child(odd){
+    float: left !important;
+    clear: left !important;
+  }
+
   .site-page-list > li:nth-child(even){
     float: right !important;
+    clear: right !important;
   }
 
   .site-page-list > li:nth-child(n+3){
