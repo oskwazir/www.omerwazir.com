@@ -33,7 +33,7 @@ docpadConfig =
       # The default title of our website
       title: "Omer Wazir"
 
-      cssURI: '/styles/style.css'
+      cssURI: '//az720535.vo.msecnd.net/styles/style.css'
       #cssURI:'http://cdn.omerwazir.com/css/omerwazir.css'
 
       # The website description (for SEO)
