@@ -1,56 +1,27 @@
 {
-  "name": "twitter-bootstrap.docpad",
-  "version": "0.9.0",
-  "description": "Twitter Bootstrap skeleton for DocPad. Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.",
-  "homepage": "https://github.com/bevry/twitter-bootstrap.docpad",
-  "keywords": [
-    "docpad-skeleton",
-    "docpad",
-    "website",
-    "bootstrap",
-    "twitter bootstrap"
-  ],
-  "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
-  "maintainers": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
-  ],
-  "contributors": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
-  ],
-  "bugs": {
-    "url": "https://github.com/docpad/twitter-bootstrap.docpad/issues"
+  "name": "www.omerwazir.com",
+  "version": "1.0.0",
+  "description": "website for www.omerwazir.com",
+  "main": "index.js",
+  "dependencies": {
+    "harp": "^0.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/docpad/twitter-bootstrap.docpad.git"
+    "url": "https://github.com/thewazir/www.omerwazir.com.git"
   },
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
+  "keywords": [
+    "Harp",
+    "Blog"
+  ],
+  "author": "Omer Wazir",
+  "license": "Copyright Omer Wazir",
+  "bugs": {
+    "url": "https://github.com/thewazir/www.omerwazir.com/issues"
   },
-  "dependencies": {
-    "async": "^0.7.0",
-    "azure": "^0.9.3",
-    "bower": "~1",
-    "docpad-plugin-cleanurls": "~2.7.0",
-    "docpad-plugin-coffeescript": "~2.3.0",
-    "docpad-plugin-eco": "~2.0.3",
-    "docpad-plugin-jade": "~2.6.2",
-    "docpad-plugin-less": "~2.4.1",
-    "docpad-plugin-marked": "~2.2.0",
-    "docpad-plugin-moment": "~2.0.2",
-    "docpad-plugin-partials": "~2.8.1",
-    "docpad-plugin-related": "~2.2.2",
-    "docpad-plugin-stylus": "~2.6.0",
-    "docpad-plugin-text": "~2.3.2",
-    "marked": "*",
-    "through": "^2.3.4"
-  },
-  "devDependencies": {
-    "docpad-plugin-livereload": "~2.6.0"
-  },
-  "main": "node_modules/docpad/bin/docpad-server",
-  "scripts": {
-    "postinstall": "node node_modules/bower/bin/bower install"
-  }
+  "homepage": "https://github.com/thewazir/www.omerwazir.com"
 }
