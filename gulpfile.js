@@ -24,7 +24,8 @@ gulp.task('browser-sync',  ['build'],  function() {
       directory: false
     },
     open: false,
-    notify: false
+    notify: false,
+    port:9778
   });
 });
 
