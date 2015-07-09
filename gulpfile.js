@@ -1,11 +1,14 @@
 'use strict';
 
+const marked = require('marked');
+const jade = require('jade');
+const jadePostRender = jade.compileFile('./src/_layouts/posts/post.jade',{pretty:'\t'});
 const gulp = require('gulp');
 const del = require('del');
 const browserSync = require('browser-sync');
-const frontMatter = require('front-matter');
 const reload = browserSync.reload;
 const plugins = require('gulp-load-plugins')();
+const grayMatter = require('gray-matter');
 const _ = require('lodash');
 const $ = require('gulp-load-plugins')({ pattern: ['gulp-*'] });
 const getBundleName = function () {
@@ -35,10 +38,10 @@ function handleError(err) {
 }
 
 gulp.task('clean', function(cb) {
-  del(['css','posts','js','contact'], cb);
+  del(['css','build'], cb);
 });
  
-gulp.task('css', function () {
+gulp.task('css',['clean'], function () {
     return gulp.src('src/styles/*.less')
         .pipe($.less())
         .on('error', handleError)
@@ -50,60 +53,36 @@ gulp.task('css', function () {
         .pipe(reload({stream:true}));
 });
 
-gulp.task('posts', function(done){
-    let stream = gulp.src(['./src/posts/**/_*.jade'])
-    .pipe($.rename(function(path){
-      path.basename = path.basename.slice(1);
+gulp.task('posts',['clean'] ,function(done){
+  const stream =  gulp.src(['src/posts/*.md'])
+    .pipe($.data(function(file){
+      const post = grayMatter(String(file.contents));
+      post.content = marked(post.content);
+      file.contents = new Buffer(jadePostRender({
+        title:post.data.title,
+        lead:post.data.lead,
+        date:post.data.date,
+        content:post.content
+      }));
+      return;
     }))
-    .pipe($.data(function(file) {
-      
-      let content = frontMatter(String(file.contents));
-      
-      file.contents = new Buffer(content.body);
-      
-      content.attributes.path = file.relative.split('.jade').join('.html');
-      
-      let postIndex = _.findIndex(pagesAttributes.posts, function(post){
-        return post.title === content.attributes.title;
-      });
-      if(postIndex > -1) {
-        pagesAttributes.posts[postIndex] = content.attributes;
-      }  else {
-        pagesAttributes.posts.push(content.attributes);
-      }
-
-      return content.attributes;
-
+  .pipe($.rename(function(path){
+      path.extname = '.html';
     }))
-    .pipe($.jade())
-    .pipe(gulp.dest('./posts'));
+  .pipe(gulp.dest('build/posts'));
 
     stream.on('end', function(){
-      pagesAttributes.posts =  _.sortBy(pagesAttributes.posts, function(post){
-        return -(new Date(post.date));
-      });
       done();
     });
 
     stream.on('error', function(err){
+      console.error(err);
       done(err);
     });
 })
 
-gulp.task('jade',['posts'], function () {
-  return gulp.src(['./src/**/*.jade','!./src/_layouts/**/*.jade','!./src/posts/**/_*.jade'])
-    .pipe($.data(function(file) {
-      let content = frontMatter(String(file.contents));
-      file.contents = new Buffer(content.body);
-      let attributes = _.assign({}, content.attributes, pagesAttributes);
-      return attributes;
-    }))
-    .pipe($.jade({pretty:true}))
-    .pipe(gulp.dest('./'))
-    .pipe(reload({stream:true}));
-});
 
-gulp.task('build', ['css','jade']);
+gulp.task('build', ['css','posts']);
 
 gulp.task('default', ['clean'], function () {
     gulp.start(['build', 'browser-sync']);
