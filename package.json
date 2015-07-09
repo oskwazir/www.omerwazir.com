@@ -7,7 +7,7 @@
     "bower": "^1.3.12",
     "browser-sync": "^2.4.0",
     "del": "^1.1.1",
-    "front-matter": "^1.0.0",
+    "gray-matter": "^2.0.0",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-concat": "^2.5.2",
@@ -17,6 +17,7 @@
     "gulp-less": "^3.0.2",
     "gulp-load-plugins": "^0.9.0",
     "gulp-markdown": "^1.0.0",
+    "gulp-marked": "^1.0.0",
     "gulp-rename": "^1.2.2",
     "lodash": "^3.6.0"
   },
