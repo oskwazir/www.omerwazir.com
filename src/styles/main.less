@@ -1,27 +1,24 @@
 @import "./normalize.css";
 
-@skyblue: #87CEEB;
-@cityblue: #132330;
-@lightsky: lighten(@skyblue, 25%);
-@creamy: #FCFAE1;
-@white: #FEFEFE;
-@textGrey: #444;
-@subtleBorder: 1px solid #f0f0f0;
-@font-family-sans-serif: "facit","Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+@font-family-sans-serif: "jaf-facitweb","Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
 
 *{
     font-variant-ligatures:common-ligatures;
 }
 
-body,h1,h2,h3,h4,h5,h6{
-    font-family: @font-family-sans-serif;
+body {
+    font:normal 400 18px/1.5 @font-family-sans-serif;
 }
 
-body{
-    font-size:18px;
-    font-weight:400;
+h1,h2,h3,h4,h5,h6 {
+    font-weight:600;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-weight:700;
+.title{
+  letter-spacing: 0.2px;
+}
+
+.lead{
+  font-style:italic;
+  font-size:1.75rem;
 }
