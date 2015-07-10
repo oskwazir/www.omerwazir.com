@@ -21,8 +21,8 @@ const getBundleName = function () {
 
 const paths = {
   markdown:['src/posts/*.md'],
-  less:'src/styles/main.less',
-  homepage:'src/index.jade'
+  styles:['src/styles/main.less'],
+  jade:['src/**/*.jade','!src/layouts/*.jade']
 } 
 
 let postAttributes = [];
@@ -44,7 +44,7 @@ gulp.task('clean', function(cb) {
 });
  
 gulp.task('styles', function () {
-    return gulp.src(paths.less)
+    return gulp.src(paths.styles)
         .pipe($.less())
         .on('error', function handleError(err) {
             console.error(err.toString());
@@ -61,8 +61,8 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('css'));
 });
 
-gulp.task('homepage',['posts'],function(){
-  return gulp.src(paths.homepage)
+gulp.task('jade',['posts'], function() {
+  return gulp.src(paths.jade)
   .pipe($.jade({
     pretty:true,
     locals: { posts: postAttributes} }
@@ -76,9 +76,13 @@ gulp.task('posts',function(done){
     .pipe($.data(function(file){
       const post = grayMatter(String(file.contents));
       post.data.path = `posts/${file.relative.split('.md').join('.html')}`;
+      
+      //postAttributes will break when gulp.watch re-runs this task
+      //could have lodash check if title already exists, and replace that
+      //entity or use some other collection type - worry about this later
       postAttributes.push(post.data);
+      
       post.content = marked(post.content);
-      console.log(post.data);
       file.contents = new Buffer(jadePostRender({
         title:post.data.title,
         lead:post.data.lead,
@@ -107,10 +111,12 @@ gulp.task('posts',function(done){
 })
 
 
-gulp.task('build', ['styles','posts']);
+
+gulp.task('build', ['styles','jade']);
 
 gulp.task('watch', function(){
   gulp.watch(paths.markdown,['posts']);
+  gulp.watch(paths.jade,['jade']);
   gulp.watch(paths.less,['styles']);
 })
 

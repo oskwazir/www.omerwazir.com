@@ -1,18 +1,21 @@
-@import "./normalize.css";
+@import (less) "normalize.css";
 
-@font-family-sans-serif: "jaf-facitweb","Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+@font-family-sans-serif: "chaparral-pro","jaf-facitweb","Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
 
 *{
     font-variant-ligatures:common-ligatures;
 }
 
+html{
+  font:24px/1.5 @font-family-sans-serif;
+  text-rendering:optimizelegibility;
+  font-feature-settings:"liga";
+}
+
 body {
-    font:normal 400 18px/1.5 @font-family-sans-serif;
     max-width: 1000px;
     min-width:520px;
     min-height: 100%;
-    text-rendering:optimizelegibility;
-    font-feature-settings:"liga";
     margin:0 auto;
 }
 
