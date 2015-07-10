@@ -1,5 +1,11 @@
 html(lang="en")
     include ./_layouts/includes/head.jade
     body
-      h1 Hi
+      ul.list-unstyled.posts-lists
+        each post in posts
+            li
+              a.archived-post(href= post.path)
+                p.post-title= post.title
+                p.post-date= post.date
+                p.lead=  post.lead
         

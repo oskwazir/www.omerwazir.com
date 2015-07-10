@@ -10,16 +10,18 @@
     "gray-matter": "^2.0.0",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
+    "gulp-changed": "^1.2.1",
     "gulp-concat": "^2.5.2",
     "gulp-csso": "^1.0.0",
     "gulp-data": "^1.2.0",
-    "gulp-jade": "^1.0.0",
+    "gulp-jade": "^1.0.1",
     "gulp-less": "^3.0.2",
     "gulp-load-plugins": "^0.9.0",
     "gulp-markdown": "^1.0.0",
     "gulp-marked": "^1.0.0",
     "gulp-rename": "^1.2.2",
-    "lodash": "^3.6.0"
+    "lodash": "^3.6.0",
+    "lodash.sortby": "^3.1.5"
   },
   "scripts": {
     "test": "test",
