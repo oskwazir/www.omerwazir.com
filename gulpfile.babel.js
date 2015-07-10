@@ -22,7 +22,8 @@ const getBundleName = function () {
 const paths = {
   markdown:['src/posts/*.md'],
   styles:['src/styles/main.less'],
-  jade:['src/**/*.jade','!src/layouts/*.jade']
+  jade:['src/**/*.jade','!src/layouts/*.jade'],
+  layouts:['src/layouts/*.jade']
 } 
 
 let postAttributes = [];
@@ -77,11 +78,6 @@ gulp.task('posts',function(done){
     .pipe($.data(function(file){
       const post = grayMatter(String(file.contents));
       post.data.path = `posts/${file.relative.split('.md').join('.html')}`;
-      
-      //postAttributes will break when gulp.watch re-runs this task
-      //could have lodash check if title already exists, and replace that
-      //entity or use some other collection type - worry about this later
-      //postAttributes.push(post.data);
 
       if(!betterPostAttributes.has(post.data.title)){
         betterPostAttributes.set(post.data.title,post.data);
@@ -102,10 +98,10 @@ gulp.task('posts',function(done){
   .pipe(gulp.dest('build/posts'));
 
     stream.on('end', function(){
-      postAttributes = sortBy(postAttributes,function(post){
+      postAttributes = sortBy([...betterPostAttributes.values()],function(post){
         let epoch = new Date(post.date).getTime();
         return -epoch;
-    })
+    });
       done();
     });
 
@@ -123,6 +119,7 @@ gulp.task('watch', function(){
   gulp.watch(paths.markdown,['posts']);
   gulp.watch(paths.styles,['styles']);
   gulp.watch(paths.jade,['jade']);
+  gulp.watch(paths.layouts,['jade']);
 });
 
 gulp.task('default', ['watch','build']);

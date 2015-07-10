@@ -192,36 +192,104 @@ body {
   min-height: 100%;
   margin: 0 auto;
 }
+body,
+.archived-post {
+  color: #444444;
+}
 p {
   font-size: 1rem;
 }
+h1,
+.title,
+.date,
+.post-content .article a {
+  font-family: "calluna sans", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+}
 h1 {
-  font-size: 2rem;
-  font-family: "calluna-sans", "jaf-facitweb", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+  font-size: 1.5rem;
 }
 h2 {
-  font-size: 1.75rem;
+  font-size: 1.15rem;
 }
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
+}
+pre,
+code {
+  font-family: "Triplicate T4c", monospace;
+  font-size: 0.9rem;
 }
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.post-content .article a {
   font-weight: 600;
+}
+.main-header {
+  border: 1px solid black;
+  margin: 0px;
+  margin-bottom: 5rem;
+}
+.container {
+  border: 1px dashed red;
+  padding: 2rem;
+}
+.main-content {
+  border: 1px dashed green;
 }
 .title {
   letter-spacing: 0.2px;
 }
+.date {
+  font-variant-caps: small-caps;
+  -webkit-font-feature-settings: "smcp";
+          font-feature-settings: "smcp";
+}
 .lead {
   font-size: 1.2rem;
+  font-weight: 300;
+}
+.posts-lists {
+  padding: 0px;
+  max-width: 680px;
+  margin: 0 auto;
 }
 .list-unstyled {
   list-style: none;
 }
-.archived-post {
+.post-content .article a {
+  font-variant-caps: small-caps;
+  -webkit-font-feature-settings: "smcp";
+          font-feature-settings: "smcp";
   text-decoration: none;
+  color: #111111;
+  text-transform: lowercase;
+  transition: background 0.2s ease-in;
+}
+.post-content .article a:hover {
+  color: #444444;
+  background: #dddddd;
+}
+.archived-post {
+  display: block;
+  margin-bottom: 3rem;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  transition: background 0.2s ease-in;
+}
+.archived-post:hover {
+  border-radius: 5px;
+  background: #ffedea;
+}
+.archived-post .lead {
+  font-size: 0.9rem;
+  margin-top: 0.35rem;
+}
+.archived-post .title {
+  font-size: 1.1rem;
+  margin-bottom: 0rem;
+  text-align: center;
 }

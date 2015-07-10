@@ -1,13 +1,16 @@
 @import (less) "normalize.css";
 
-@font-family-sans-serif: "calluna-sans","jaf-facitweb","Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+@font-family-sans-serif: "calluna sans","Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
 @font-family-serif:"calluna","georgia",serif;
+@monospace-font-family: "Triplicate T4c",monospace;
+@text-color:#444;
+@external-link:#111;
 
 *{
     font-variant-ligatures:common-ligatures;
 }
 
-html{
+html {
   font:24px/1.5 @font-family-serif;
   text-rendering:optimizelegibility;
   font-feature-settings:"liga";
@@ -20,39 +23,115 @@ body {
     margin:0 auto;
 }
 
-p{
+body, .archived-post{
+    color:@text-color;
+}
+
+p {
   font-size:1rem;
 }
 
-h1{
-  font-size:2rem;
+h1, .title, .date, .post-content .article a {
   font-family: @font-family-sans-serif;
 }
 
-h2{
-  font-size:1.75rem;
+h1 {
+  font-size:1.5rem;
 }
 
-h3{
-  font-size:1.2rem;
+h2 {
+  font-size:1.15rem;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h3 {
+  font-size:1.05rem;
+}
+
+pre, code{
+  font-family:@monospace-font-family;
+  font-size:0.9rem;
+}
+
+h1,h2,h3,h4,h5,h6,.post-content .article a {
     font-weight:600;
 }
 
-.title{
+.main-header {
+  border:1px solid black;
+  margin:0px;
+  margin-bottom: 5rem;
+}
+
+.container {
+  border:1px dashed red;
+  padding:2rem;
+}
+
+.main-content {
+  border:1px dashed green;
+}
+
+.title {
   letter-spacing: 0.2px;
 }
 
+.date {
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp";
+}
+
+
 .lead{
   font-size:1.2rem;
+  font-weight: 300;
+}
+
+.posts-lists {
+  padding:0px;
+  max-width: 680px;
+   margin:0 auto;
 }
 
 .list-unstyled {
     list-style: none;
 }
 
+.post-content { 
+  .article {
+    a {
+      font-variant-caps: small-caps;
+      font-feature-settings: "smcp";
+      text-decoration: none;
+      color:@external-link;
+      text-transform: lowercase;
+      transition:background 0.2s ease-in;
+      &:hover{
+        color:lighten(@external-link, 20%);
+        background: lighten(@external-link, 80%);
+      }
+    }
+  }
+}
+
 .archived-post {
+    display:block;
+    margin-bottom: 3rem;
+    padding:0.5rem 1.5rem;
     text-decoration: none;
+    transition:background 0.2s ease-in;
+    &:hover{
+      border-radius:5px;
+      background: lighten(tomato, 32%);
+    }
+
+    .lead {
+        font-size: 0.9rem;
+        margin-top:0.35rem;
+    }
+
+    .title {
+        font-size:1.1rem;
+        margin-bottom: 0rem;
+        text-align: center;
+    }
 }
