@@ -1,13 +1,14 @@
 @import (less) "normalize.css";
 
-@font-family-sans-serif: "chaparral-pro","jaf-facitweb","Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+@font-family-sans-serif: "calluna-sans","jaf-facitweb","Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+@font-family-serif:"calluna","georgia",serif;
 
 *{
     font-variant-ligatures:common-ligatures;
 }
 
 html{
-  font:24px/1.5 @font-family-sans-serif;
+  font:24px/1.5 @font-family-serif;
   text-rendering:optimizelegibility;
   font-feature-settings:"liga";
 }
@@ -25,6 +26,7 @@ p{
 
 h1{
   font-size:2rem;
+  font-family: @font-family-sans-serif;
 }
 
 h2{
@@ -45,4 +47,12 @@ h1,h2,h3,h4,h5,h6 {
 
 .lead{
   font-size:1.2rem;
+}
+
+.list-unstyled {
+    list-style: none;
+}
+
+.archived-post {
+    text-decoration: none;
 }

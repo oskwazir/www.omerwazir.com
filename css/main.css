@@ -181,7 +181,7 @@ th {
           font-variant-ligatures: common-ligatures;
 }
 html {
-  font: 24px/1.5 "chaparral-pro", "jaf-facitweb", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+  font: 24px/1.5 "calluna", "georgia", serif;
   text-rendering: optimizelegibility;
   -webkit-font-feature-settings: "liga";
           font-feature-settings: "liga";
@@ -197,6 +197,7 @@ p {
 }
 h1 {
   font-size: 2rem;
+  font-family: "calluna-sans", "jaf-facitweb", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
 }
 h2 {
   font-size: 1.75rem;
@@ -217,4 +218,10 @@ h6 {
 }
 .lead {
   font-size: 1.2rem;
+}
+.list-unstyled {
+  list-style: none;
+}
+.archived-post {
+  text-decoration: none;
 }

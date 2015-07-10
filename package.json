@@ -8,7 +8,7 @@
     "browser-sync": "^2.4.0",
     "del": "^1.1.1",
     "gray-matter": "^2.0.0",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-changed": "^1.2.1",
     "gulp-concat": "^2.5.2",
@@ -20,8 +20,10 @@
     "gulp-markdown": "^1.0.0",
     "gulp-marked": "^1.0.0",
     "gulp-rename": "^1.2.2",
+    "jade": "^1.11.0",
     "lodash": "^3.6.0",
-    "lodash.sortby": "^3.1.5"
+    "lodash.sortby": "^3.1.5",
+    "marked": "^0.3.3"
   },
   "scripts": {
     "test": "test",

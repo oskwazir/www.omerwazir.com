@@ -26,6 +26,7 @@ const paths = {
 } 
 
 let postAttributes = [];
+let betterPostAttributes = new Map();
 
 gulp.task('browser-sync',  ['build'],  function() {
   browserSync({
@@ -80,7 +81,11 @@ gulp.task('posts',function(done){
       //postAttributes will break when gulp.watch re-runs this task
       //could have lodash check if title already exists, and replace that
       //entity or use some other collection type - worry about this later
-      postAttributes.push(post.data);
+      //postAttributes.push(post.data);
+
+      if(!betterPostAttributes.has(post.data.title)){
+        betterPostAttributes.set(post.data.title,post.data);
+      }
       
       post.content = marked(post.content);
       file.contents = new Buffer(jadePostRender({
@@ -116,8 +121,8 @@ gulp.task('build', ['styles','jade']);
 
 gulp.task('watch', function(){
   gulp.watch(paths.markdown,['posts']);
+  gulp.watch(paths.styles,['styles']);
   gulp.watch(paths.jade,['jade']);
-  gulp.watch(paths.less,['styles']);
-})
+});
 
 gulp.task('default', ['watch','build']);
