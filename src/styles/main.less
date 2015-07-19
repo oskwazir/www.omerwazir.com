@@ -3,8 +3,14 @@
 @font-family-sans-serif: "calluna sans","Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
 @font-family-serif:"calluna","georgia",serif;
 @monospace-font-family: "Triplicate T4c",monospace;
+@fancy-font-family: "estilo-regular",@font-family-serif;
+
 @text-color:#444;
 @external-link:#111;
+
+@colorado-blue:#002868;
+@colorado-red:#BF0A30;
+@colorado-yellow:#FFD700;
 
 *{
     font-variant-ligatures:common-ligatures;
@@ -16,11 +22,15 @@ html {
   font-feature-settings:"liga";
 }
 
-body {
+//was body
+.container  {
     max-width: 1000px;
-    min-width:520px;
+    min-width:400px;
     min-height: 100%;
     margin:0 auto;
+    hyphens: auto;
+    padding:2rem;
+    background: #fefefe;
 }
 
 body, .archived-post{
@@ -31,7 +41,7 @@ p {
   font-size:1rem;
 }
 
-h1, .title, .date, .post-content .article a {
+h1, .title, .date, a {
   font-family: @font-family-sans-serif;
 }
 
@@ -52,34 +62,47 @@ pre, code{
   font-size:0.9rem;
 }
 
-h1,h2,h3,h4,h5,h6,.post-content .article a {
+h1,h2,h3,h4,h5,h6,a {
     font-weight:600;
 }
 
-.main-header {
-  border:1px solid black;
-  margin:0px;
-  margin-bottom: 5rem;
+a, .date{
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp";
 }
 
-.container {
-  border:1px dashed red;
-  padding:2rem;
+a{
+  text-decoration: none;
+  text-transform: lowercase;
+  transition:background 0.2s ease-in;
+}
+
+.main-header {
+  margin:0px;
+  margin-bottom: 5rem;
+  padding:1rem 0rem;
+  .content{
+    h1{
+      text-align: center;
+      font-size:4rem;
+      font-family:@font-family-sans-serif;
+      color:@colorado-blue;
+      font-weight:900;
+    }
+    a{
+      color:inherit;
+      padding:0.5rem 1rem 0.6rem 1rem;
+    }
+  }
+
 }
 
 .main-content {
-  border:1px dashed green;
 }
 
 .title {
   letter-spacing: 0.2px;
 }
-
-.date {
-  font-variant-caps: small-caps;
-  font-feature-settings: "smcp";
-}
-
 
 .lead{
   font-size:1.2rem;
@@ -96,18 +119,60 @@ h1,h2,h3,h4,h5,h6,.post-content .article a {
     list-style: none;
 }
 
+.nav-links{
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+}
+
 .post-content { 
   .article {
     a {
-      font-variant-caps: small-caps;
-      font-feature-settings: "smcp";
-      text-decoration: none;
       color:@external-link;
-      text-transform: lowercase;
-      transition:background 0.2s ease-in;
       &:hover{
         color:lighten(@external-link, 20%);
         background: lighten(@external-link, 80%);
+      }
+    }
+  }
+}
+
+.colorado-bottom-border{
+    box-shadow: 0px 3px 0px @colorado-blue,
+    0px 6px 0px @colorado-red,
+    0px 9px 0px @colorado-yellow;
+}
+
+.colorado-full-border{
+      box-shadow: 0 0 0 6px @colorado-blue,
+    0 0 0 12px @colorado-red,
+    0 0 0 18px @colorado-yellow;
+}
+
+.highlight-red{
+  //color:@colorado-red;
+}
+
+.post-navbar{
+  display:flex;
+  padding:1.5rem 1rem;
+  margin-bottom: 4rem;
+  border:1px solid @colorado-blue;
+
+  .title{
+  text-transform: none;
+  font-variant-caps: normal;
+  font-feature-settings: "liga";
+  }
+
+  .navigation{
+    flex-grow:2;
+    .nav-links{
+      margin:0;
+      justify-content: flex-end;
+
+      li{
+        padding:0rem 1rem;
       }
     }
   }
@@ -117,11 +182,12 @@ h1,h2,h3,h4,h5,h6,.post-content .article a {
     display:block;
     margin-bottom: 3rem;
     padding:0.5rem 1.5rem;
-    text-decoration: none;
-    transition:background 0.2s ease-in;
+    text-transform: none;
+    font-variant-caps:normal;
+    font-feature-settings: unset;
+    transition:box-shadow 0.4s ease-in-out;
     &:hover{
-      border-radius:5px;
-      background: lighten(tomato, 32%);
+        .colorado-full-border;
     }
 
     .lead {
@@ -132,6 +198,5 @@ h1,h2,h3,h4,h5,h6,.post-content .article a {
     .title {
         font-size:1.1rem;
         margin-bottom: 0rem;
-        text-align: center;
     }
 }

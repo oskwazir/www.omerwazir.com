@@ -186,11 +186,17 @@ html {
   -webkit-font-feature-settings: "liga";
           font-feature-settings: "liga";
 }
-body {
+.container {
   max-width: 1000px;
-  min-width: 520px;
+  min-width: 400px;
   min-height: 100%;
   margin: 0 auto;
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  padding: 2rem;
+  background: #fefefe;
 }
 body,
 .archived-post {
@@ -202,7 +208,7 @@ p {
 h1,
 .title,
 .date,
-.post-content .article a {
+a {
   font-family: "calluna sans", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
 }
 h1 {
@@ -225,28 +231,38 @@ h3,
 h4,
 h5,
 h6,
-.post-content .article a {
+a {
   font-weight: 600;
 }
-.main-header {
-  border: 1px solid black;
-  margin: 0px;
-  margin-bottom: 5rem;
-}
-.container {
-  border: 1px dashed red;
-  padding: 2rem;
-}
-.main-content {
-  border: 1px dashed green;
-}
-.title {
-  letter-spacing: 0.2px;
-}
+a,
 .date {
   font-variant-caps: small-caps;
   -webkit-font-feature-settings: "smcp";
           font-feature-settings: "smcp";
+}
+a {
+  text-decoration: none;
+  text-transform: lowercase;
+  transition: background 0.2s ease-in;
+}
+.main-header {
+  margin: 0px;
+  margin-bottom: 5rem;
+  padding: 1rem 0rem;
+}
+.main-header .content h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-family: "calluna sans", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+  color: #002868;
+  font-weight: 900;
+}
+.main-header .content a {
+  color: inherit;
+  padding: 0.5rem 1rem 0.6rem 1rem;
+}
+.title {
+  letter-spacing: 0.2px;
 }
 .lead {
   font-size: 1.2rem;
@@ -260,29 +276,70 @@ h6,
 .list-unstyled {
   list-style: none;
 }
+.nav-links {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
 .post-content .article a {
-  font-variant-caps: small-caps;
-  -webkit-font-feature-settings: "smcp";
-          font-feature-settings: "smcp";
-  text-decoration: none;
   color: #111111;
-  text-transform: lowercase;
-  transition: background 0.2s ease-in;
 }
 .post-content .article a:hover {
   color: #444444;
   background: #dddddd;
 }
+.colorado-bottom-border {
+  box-shadow: 0px 3px 0px #002868, 0px 6px 0px #bf0a30, 0px 9px 0px #ffd700;
+}
+.colorado-full-border {
+  box-shadow: 0 0 0 6px #002868, 0 0 0 12px #bf0a30, 0 0 0 18px #ffd700;
+}
+.post-navbar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1.5rem 1rem;
+  margin-bottom: 4rem;
+  border: 1px solid #002868;
+}
+.post-navbar .title {
+  text-transform: none;
+  font-variant-caps: normal;
+  -webkit-font-feature-settings: "liga";
+          font-feature-settings: "liga";
+}
+.post-navbar .navigation {
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+.post-navbar .navigation .nav-links {
+  margin: 0;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.post-navbar .navigation .nav-links li {
+  padding: 0rem 1rem;
+}
 .archived-post {
   display: block;
   margin-bottom: 3rem;
   padding: 0.5rem 1.5rem;
-  text-decoration: none;
-  transition: background 0.2s ease-in;
+  text-transform: none;
+  font-variant-caps: normal;
+  -webkit-font-feature-settings: unset;
+          font-feature-settings: unset;
+  transition: box-shadow 0.4s ease-in-out;
 }
 .archived-post:hover {
-  border-radius: 5px;
-  background: #ffedea;
+  box-shadow: 0 0 0 6px #002868, 0 0 0 12px #bf0a30, 0 0 0 18px #ffd700;
 }
 .archived-post .lead {
   font-size: 0.9rem;
@@ -291,5 +348,4 @@ h6,
 .archived-post .title {
   font-size: 1.1rem;
   margin-bottom: 0rem;
-  text-align: center;
 }

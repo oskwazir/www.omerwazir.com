@@ -45,5 +45,8 @@
   "bugs": {
     "url": "https://github.com/thewazir/www.omerwazir.com/issues"
   },
-  "homepage": "https://github.com/thewazir/www.omerwazir.com"
+  "homepage": "https://github.com/thewazir/www.omerwazir.com",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  }
 }
