@@ -22,7 +22,7 @@ const getBundleName = function () {
 const paths = {
   markdown:['src/posts/*.md'],
   styles:['src/styles/main.less'],
-  jade:['src/**/*.jade','!src/layouts/*.jade'],
+  jade:['src/**/*.jade','!src/_layouts/*.jade'],
   layouts:['src/layouts/*.jade']
 } 
 
@@ -42,7 +42,7 @@ gulp.task('browser-sync',  ['build'],  function() {
 });
 
 gulp.task('clean', function(cb) {
-  del(['css','posts'], cb);
+  del(['css','posts','404.html','500.html','index.html'], cb);
 });
  
 gulp.task('styles', function () {
