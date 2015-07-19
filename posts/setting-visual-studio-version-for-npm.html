@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//use.typekit.net/clh0bif.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Omer Wazir</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/main.min.css">
+	</head>
+	<body>
+		<div class="post-navbar"><a href="/" class="title">Omer Wazir</a>
+			<nav class="navigation">
+				<ul class="nav-links list-unstyled"> 
+					<li><a href="/">github</a></li>
+					<li><a href="/">about me</a></li>
+					<li> <a href="/">twitter</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container">
+			<div class="post-content">
+				<h1 class="title">How to set your version of Visual Studio for npm</h1>
+				<p class="date">Thu Mar 27 2014 14:57:12 GMT-0700 (MST)</p>
+				<p class="lead">Some npm packages look for a specific Visual Studio version. If you don't have the expected version than the npm package will fail to install.</p>
+				<div class="article"><p>When installing some npm modules on Windows an error may show up that says:</p>
+<pre><code>error MSB8020: The build tools for Visual Studio 2010 (Platform Toolset = &#39;v100&#39;) cannot be found.
+</code></pre><p>What you can do is set your installed version of Visual Studio when running npm install.</p>
+<p>To do that simply run:</p>
+<pre><code>npm install &lt;module&gt; -msvs_version=2013
+</code></pre><p>where <code>msvs_version</code> is equal to the version of Visual Studio that you have. </p>
+<p>Yay!</p>
+</div>
+			</div>
+		</div>
+	</body>
+</html>

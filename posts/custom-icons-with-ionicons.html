@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//use.typekit.net/clh0bif.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Omer Wazir</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/main.min.css">
+	</head>
+	<body>
+		<div class="post-navbar"><a href="/" class="title">Omer Wazir</a>
+			<nav class="navigation">
+				<ul class="nav-links list-unstyled"> 
+					<li><a href="/">github</a></li>
+					<li><a href="/">about me</a></li>
+					<li> <a href="/">twitter</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container">
+			<div class="post-content">
+				<h1 class="title">Adding custom icons to ionicons</h1>
+				<p class="date">Wed Oct 29 2014 15:46:13 GMT-0700 (MST)</p>
+				<p class="lead">Adding custom icons to ionicons is very simple thanks to build scripts provided with the ionicons sources. I have listed out the basic steps to get a custom icon working natively with ionic</p>
+				<div class="article"><h2 id="download-the-ionicons-source">Download the ionicons source</h2>
+<p>The repo for ionicons is <a href="https://github.com/driftyco/ionicons">here</a>. Fork or straight up download the repo. We’ll need it to generate the ionicons for ionic. I assume ionicons is an entity like Voltron. The next step assumes you are using OS X and have Homebrew installed.</p>
+<h2 id="install-some-dependencies">Install some dependencies</h2>
+<p>Run the following commands to get Homebrew to install fontforge and ttfautohint. </p>
+<p><code>brew install fontforge ttfautohint</code></p>
+<p>On my personal computer I encountered the error below so I had to install <a href="https://xquartz.macosforge.org">XQuartz</a>. I have another work computer which didn’t need XQuartz probably because it was already installed.</p>
+<pre><code>Homebrew does not package XQuartz. Installers may be found at:
+  https://xquartz.macosforge.org
+pango: Unsatisfied dependency: XQuartz 0.0.0
+Homebrew does not package XQuartz. Installers may be found at:
+  https://xquartz.macosforge.org
+Error: Unsatisified requirements failed this build.
+</code></pre><p>After XQuartz was installed it wanted me to logout. So I logged out and logged back in.</p>
+<p>Run the command <code>brew install fontforge ttfautohint</code> again and wait since this could take a few minutes. Once that is over you will need to install Sass. You can run <code>gem install sass</code> if you have <code>gem</code> already working. If not then follow the <a href="http://sass-lang.com/install">Sass install</a> instructions.</p>
+<h2 id="add-your-custom-icon">Add your custom icon</h2>
+<p>So with all of the above installed it’s time to add the custom icon to ionicons. Add your custom svg icon to the <code>src</code> directory in the ionicons repo. I’m taking a public domain icon from <a href="http://thenounproject.com">The Noun Project</a>. Make sure you understand the conditions of usage for icons on The Noun Project before you add them to your app. I’m going to add the <a href="http://thenounproject.com/term/informal-learning/27471/">Informal-Learning</a> icon. Rename the svg file to something meaningful. Right now the icon file is named <code>icon_27471</code> but that won’t be as useful to use with ionicons, since the build process will use the file name as the name of the icon. I’ve renamed the svg file to <code>informal-learning</code> and have added it to the ionicons <code>src</code> directory. With the custom file added to the <code>src</code> directory it’s time to run ionicons build script.</p>
+<h2 id="build-ionicons">Build ionicons</h2>
+<p>In the root of the ionicons directory run the following command <code>python ./builder/generate.py</code>. You should see output similar to this</p>
+<pre><code>Load Manifest, Icons: 601
+New Icon: 
+ - informal-learning
+ - 0xf359
+ - Standard Width: ios7-reload
+ - Standard Width: load-a
+ - Standard Width: load-b
+ - Standard Width: load-c
+ - Standard Width: load-d
+ - Standard Width: loop
+ - Standard Width: refresh
+Save Manifest, Icons: 602
+Save Build, Icons: 602
+Generate SCSS
+Generate CSS From SCSS
+Generate Minified CSS From SCSS
+Generate LESS
+Generate Cheatsheet
+Generate component.json
+Generate composer.json
+Generate bower.json
+</code></pre><h2 id="add-the-new-ionicons-files-to-your-ionic-project">Add the new ionicons files to your ionic project</h2>
+<p>Now copy the files from these folders to the destination folders</p>
+<pre><code>ionicons\css    -&gt;    &lt;ionicApp&gt;/www/lib/ionic/css/
+ionicons\fonts  -&gt;    &lt;ionicApp&gt;/www/lib/ionic/fonts/
+ionicons\scss   -&gt;    &lt;ionicApp&gt;/www/lib/ionic/scss/ionicons/
+</code></pre><p>It might seem like you wouldn’t need to copy the scss files. I thougth the same thing too but my icon wouldn’t work. So just copy them because they matter.</p>
+<p>Start your app with <code>ionic serve</code> add the new icon with <code>icon=&quot;icon ion-informal-learning&quot;</code> and behold such magical wizardry.</p>
+<p>If you encounter any problems just figure it out. These instructions worked for me on two different computers.</p>
+</div>
+			</div>
+		</div>
+	</body>
+</html>
