@@ -32,7 +32,7 @@ let betterPostAttributes = new Map();
 gulp.task('browser-sync',  ['build'],  function() {
   browserSync({
     server: {
-      baseDir: './build',
+      baseDir: './',
       directory: true
     },
     open: false,
@@ -42,7 +42,7 @@ gulp.task('browser-sync',  ['build'],  function() {
 });
 
 gulp.task('clean', function(cb) {
-  del(['css','build'], cb);
+  del(['css','posts'], cb);
 });
  
 gulp.task('styles', function () {
@@ -69,12 +69,12 @@ gulp.task('jade',['posts'], function() {
     pretty:true,
     locals: { posts: postAttributes} }
   ))
-  .pipe(gulp.dest('build/'));
+  .pipe(gulp.dest('./'));
 })
 
 gulp.task('posts',function(done){
   const stream =  gulp.src(paths.markdown)
-    .pipe($.changed('build/posts'))
+    .pipe($.changed('./posts'))
     .pipe($.data(function(file){
       const post = grayMatter(String(file.contents));
       post.data.path = `posts/${file.relative.split('.md').join('.html')}`;
@@ -95,7 +95,7 @@ gulp.task('posts',function(done){
   .pipe($.rename(function(path){
       path.extname = '.html';
     }))
-  .pipe(gulp.dest('build/posts'));
+  .pipe(gulp.dest('./posts'));
 
     stream.on('end', function(){
       postAttributes = sortBy([...betterPostAttributes.values()],function(post){
