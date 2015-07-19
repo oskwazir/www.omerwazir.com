@@ -11,6 +11,7 @@
 @colorado-blue:#002868;
 @colorado-red:#BF0A30;
 @colorado-yellow:#FFD700;
+@white:#FEFEFE;
 
 *{
     font-variant-ligatures:common-ligatures;
@@ -30,7 +31,7 @@ html {
     margin:0 auto;
     hyphens: auto;
     padding:2rem;
-    background: #fefefe;
+    background: @white;
 }
 
 body, .archived-post{
@@ -138,9 +139,9 @@ a{
 }
 
 .colorado-bottom-border{
-    box-shadow: 0px 3px 0px @colorado-blue,
-    0px 6px 0px @colorado-red,
-    0px 9px 0px @colorado-yellow;
+    box-shadow: 0px 10px 0px @colorado-blue,
+    0px 20px 0px @colorado-red,
+    0px 30px 0px @colorado-yellow;
 }
 
 .colorado-full-border{
@@ -154,15 +155,19 @@ a{
 }
 
 .post-navbar{
+  background: darken(@colorado-blue,10%);
+  color:@white;
   display:flex;
   padding:1.5rem 1rem;
   margin-bottom: 4rem;
   border:1px solid @colorado-blue;
+  .colorado-bottom-border;
 
   .title{
   text-transform: none;
   font-variant-caps: normal;
   font-feature-settings: "liga";
+  color:inherit;
   }
 
   .navigation{
@@ -173,6 +178,9 @@ a{
 
       li{
         padding:0rem 1rem;
+        a{
+          color:inherit;
+        }
       }
     }
   }

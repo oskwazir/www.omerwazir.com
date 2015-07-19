@@ -295,24 +295,28 @@ a {
   background: #dddddd;
 }
 .colorado-bottom-border {
-  box-shadow: 0px 3px 0px #002868, 0px 6px 0px #bf0a30, 0px 9px 0px #ffd700;
+  box-shadow: 0px 10px 0px #002868, 0px 20px 0px #bf0a30, 0px 30px 0px #ffd700;
 }
 .colorado-full-border {
   box-shadow: 0 0 0 6px #002868, 0 0 0 12px #bf0a30, 0 0 0 18px #ffd700;
 }
 .post-navbar {
+  background: #001435;
+  color: #fefefe;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   padding: 1.5rem 1rem;
   margin-bottom: 4rem;
   border: 1px solid #002868;
+  box-shadow: 0px 10px 0px #002868, 0px 20px 0px #bf0a30, 0px 30px 0px #ffd700;
 }
 .post-navbar .title {
   text-transform: none;
   font-variant-caps: normal;
   -webkit-font-feature-settings: "liga";
           font-feature-settings: "liga";
+  color: inherit;
 }
 .post-navbar .navigation {
   -webkit-flex-grow: 2;
@@ -327,6 +331,9 @@ a {
 }
 .post-navbar .navigation .nav-links li {
   padding: 0rem 1rem;
+}
+.post-navbar .navigation .nav-links li a {
+  color: inherit;
 }
 .archived-post {
   display: block;
