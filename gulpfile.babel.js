@@ -22,7 +22,7 @@ const getBundleName = function () {
 const paths = {
   markdown:['src/posts/*.md'],
   styles:['src/styles/main.less'],
-  jade:['src/**/*.jade','!src/_layouts/*.jade'],
+  jade:['src/**/*.jade','!src/_layouts/**/*.jade'],
   layouts:['src/layouts/*.jade']
 } 
 
