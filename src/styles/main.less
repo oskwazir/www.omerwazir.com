@@ -20,6 +20,9 @@
 //breakpoint at which default layout fails
 @screen-small: 625px;
 
+//breakpoint at which post layout fails
+@screen-medium: 820px;
+
 *{
     font-variant-ligatures:common-ligatures;
 }
@@ -32,10 +35,6 @@ html {
 
 //was body
 .container  {
-    max-width: 1000px;
-    min-width:400px;
-    min-height: 100%;
-    margin:0 auto;
     hyphens: auto;
     background: @white;
 }
@@ -87,14 +86,26 @@ a{
 .main-header {
   margin:0px;
   margin-bottom: 5rem;
-  //.colorado-bottom-border-thin;
+  background: darken(@colorado-blue,10%);
+  color:@white;
+  .colorado-bottom-border-thin;
+  .nav-links{
+    padding: 0;
+    padding-bottom: 1rem;
+    font-size:1.25rem;
+    text-transform: none;
+    font-variant-caps: normal;
+    font-feature-settings: "liga";
+  }
   .content{
     h1{
       text-align: center;
       font-size:4rem;
       font-family:@font-family-sans-serif;
-      color:@colorado-blue;
+      color:inherit;
       font-weight:900;
+      margin:0;
+      margin-bottom: 1rem;
     }
     a{
       color:inherit;
@@ -136,7 +147,9 @@ a{
   flex-wrap:wrap;
 }
 
-.post-content { 
+.post-content {
+  max-width: 800px;
+  margin:0 auto;
   .article {
     a {
       color:@external-link;
@@ -191,7 +204,6 @@ a{
     .nav-links{
       margin:0;
       justify-content: flex-end;
-
       li{
         padding:0rem 1rem;
         a{
@@ -223,6 +235,22 @@ a{
         font-size:1.1rem;
         margin-bottom: 0rem;
     }
+}
+
+@media (max-width: @screen-medium){
+  .post-navbar{
+      justify-content:center;
+      flex-direction:column;
+      align-items:center;
+  }
+
+  .title{
+    font-size:1.5rem;
+  }
+
+  .post-content{
+    padding:0rem 1.25rem;
+  }
 }
 
 @media (max-width: @screen-small) {

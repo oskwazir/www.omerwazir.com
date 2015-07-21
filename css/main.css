@@ -187,10 +187,6 @@ html {
           font-feature-settings: "liga";
 }
 .container {
-  max-width: 1000px;
-  min-width: 400px;
-  min-height: 100%;
-  margin: 0 auto;
   -webkit-hyphens: auto;
      -moz-hyphens: auto;
       -ms-hyphens: auto;
@@ -247,13 +243,27 @@ a {
 .main-header {
   margin: 0px;
   margin-bottom: 5rem;
+  background: #001435;
+  color: #fefefe;
+  box-shadow: 0px 10px 0px #002868, 0px 20px 0px #bf0a30, 0px 30px 0px #ffd700;
+}
+.main-header .nav-links {
+  padding: 0;
+  padding-bottom: 1rem;
+  font-size: 1.25rem;
+  text-transform: none;
+  font-variant-caps: normal;
+  -webkit-font-feature-settings: "liga";
+          font-feature-settings: "liga";
 }
 .main-header .content h1 {
   text-align: center;
   font-size: 4rem;
   font-family: "calluna sans", "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
-  color: #002868;
+  color: inherit;
   font-weight: 900;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 .main-header .content a {
   color: inherit;
@@ -291,6 +301,10 @@ a {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+}
+.post-content {
+  max-width: 800px;
+  margin: 0 auto;
 }
 .post-content .article a {
   color: #111111;
@@ -363,6 +377,25 @@ a {
 .archived-post .title {
   font-size: 1.1rem;
   margin-bottom: 0rem;
+}
+@media (max-width: 820px) {
+  .post-navbar {
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .post-content {
+    padding: 0rem 1.25rem;
+  }
 }
 @media (max-width: 625px) {
   .container {
