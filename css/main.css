@@ -356,6 +356,10 @@ a {
 }
 .post-navbar .navigation .nav-links li a {
   color: inherit;
+  text-transform: none;
+  font-variant-caps: normal;
+  -webkit-font-feature-settings: unset;
+          font-feature-settings: unset;
 }
 .archived-post {
   display: block;
@@ -398,9 +402,6 @@ a {
   }
 }
 @media (max-width: 625px) {
-  .container {
-    min-width: 100%;
-  }
   .archived-post {
     padding: 0.25rem 0rem;
   }

@@ -208,6 +208,9 @@ a{
         padding:0rem 1rem;
         a{
           color:inherit;
+          text-transform: none;
+          font-variant-caps:normal;
+          font-feature-settings: unset;
         }
       }
     }
@@ -254,9 +257,6 @@ a{
 }
 
 @media (max-width: @screen-small) {
-  .container{
-    min-width: 100%
-  }
   .archived-post{
     padding:0.25rem 0rem;
      &:hover{
