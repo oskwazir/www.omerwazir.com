@@ -365,6 +365,9 @@ a {
   margin-bottom: 0rem;
 }
 @media (max-width: 625px) {
+  .container {
+    min-width: 100%;
+  }
   .archived-post {
     padding: 0.25rem 0rem;
   }
