@@ -373,9 +373,18 @@ a {
     box-shadow: none;
   }
   .nav-links {
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
   }
   .nav-links li {
     margin: 0px;
@@ -399,5 +408,7 @@ a {
   .main-header .content h1 {
     color: inherit;
     font-size: 2rem;
+    margin: 0.75rem;
+    margin-bottom: 0rem;
   }
 }
