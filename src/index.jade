@@ -1,5 +1,7 @@
 html(lang="en")
     include ./_layouts/includes/head.jade
+    script.
+      document.documentElement.className += ' wf-loading';
     body.container
       include ./_layouts/includes/main-header.jade
       .main-content
@@ -9,4 +11,5 @@ html(lang="en")
                 a.archived-post(href= post.path)
                   p.title= post.title
                   p.lead=  post.lead
+      include ./_layouts/includes/scripts.jade
           
