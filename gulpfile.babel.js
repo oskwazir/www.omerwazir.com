@@ -13,7 +13,7 @@ const _ = require('lodash');
 const $ = require('gulp-load-plugins')({ pattern: ['gulp-*'] });
 const sortBy = require('lodash.sortby');
 
-const getBundleName = function () {
+const getBundleName = function getBundleName() {
   const version = require('./package.json').version;
   const name = require('./package.json').name;
   return version + '.' + name + '.' + 'min';
@@ -29,7 +29,7 @@ const paths = {
 let postAttributes = [];
 let betterPostAttributes = new Map();
 
-gulp.task('browser-sync',  ['build'],  function() {
+gulp.task('browser-sync',  ['build'], () => {
   browserSync({
     server: {
       baseDir: './',
@@ -41,14 +41,14 @@ gulp.task('browser-sync',  ['build'],  function() {
   });
 });
 
-gulp.task('clean', function(cb) {
+gulp.task('clean', (cb) => {
   del(['css','posts','404.html','500.html','index.html'], cb);
 });
  
-gulp.task('styles', function () {
+gulp.task('styles', () => {
     return gulp.src(paths.styles)
         .pipe($.less())
-        .on('error', function handleError(err) {
+        .on('error', (err) => {
             console.error(err.toString());
             this.emit('end');
           })
@@ -57,13 +57,13 @@ gulp.task('styles', function () {
         }))
         .pipe(gulp.dest('css'))
         .pipe($.csso())
-        .pipe($.rename(function(path){
+        .pipe($.rename((path) => {
             path.extname = '.min.css';
         }))
         .pipe(gulp.dest('css'));
 });
 
-gulp.task('jade',['posts'], function() {
+gulp.task('jade',['posts'], () => {
   return gulp.src(paths.jade)
   .pipe($.jade({
     pretty:true,
@@ -72,10 +72,10 @@ gulp.task('jade',['posts'], function() {
   .pipe(gulp.dest('./'));
 })
 
-gulp.task('posts',function(done){
+gulp.task('posts',(done) => {
   const stream =  gulp.src(paths.markdown)
     .pipe($.changed('./posts'))
-    .pipe($.data(function(file){
+    .pipe($.data((file) => {
       const post = grayMatter(String(file.contents));
       post.data.path = `posts/${file.relative.split('.md').join('.html')}`;
 
@@ -92,20 +92,20 @@ gulp.task('posts',function(done){
       }));
       return;
     }))
-  .pipe($.rename(function(path){
+  .pipe($.rename((path) => {
       path.extname = '.html';
     }))
   .pipe(gulp.dest('./posts'));
 
-    stream.on('end', function(){
-      postAttributes = sortBy([...betterPostAttributes.values()],function(post){
+    stream.on('end', () => {
+      postAttributes = sortBy([...betterPostAttributes.values()],(post) => {
         let epoch = new Date(post.date).getTime();
         return -epoch;
     });
       done();
     });
 
-    stream.on('error', function(err){
+    stream.on('error', (err) => {
       console.error(err);
       done(err);
     });
@@ -122,4 +122,4 @@ gulp.task('watch', function(){
   gulp.watch(paths.layouts,['jade']);
 });
 
-gulp.task('default', ['watch','build']);
+gulp.task('default', ['watch','browser-sync']);

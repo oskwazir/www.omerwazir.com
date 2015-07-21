@@ -195,7 +195,6 @@ html {
      -moz-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
-  padding: 2rem;
   background: #fefefe;
 }
 body,
@@ -209,7 +208,7 @@ h1,
 .title,
 .date,
 a {
-  font-family: "calluna sans", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+  font-family: "calluna sans", "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
 }
 h1 {
   font-size: 1.5rem;
@@ -248,18 +247,21 @@ a {
 .main-header {
   margin: 0px;
   margin-bottom: 5rem;
-  padding: 1rem 0rem;
 }
 .main-header .content h1 {
   text-align: center;
   font-size: 4rem;
-  font-family: "calluna sans", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+  font-family: "calluna sans", "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
   color: #002868;
   font-weight: 900;
 }
 .main-header .content a {
   color: inherit;
   padding: 0.5rem 1rem 0.6rem 1rem;
+}
+.main-content,
+.main-header {
+  max-width: 100%;
 }
 .line-through {
   text-decoration: line-through;
@@ -269,7 +271,7 @@ a {
 }
 .lead {
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 .posts-lists {
   padding: 0px;
@@ -361,4 +363,41 @@ a {
 .archived-post .title {
   font-size: 1.1rem;
   margin-bottom: 0rem;
+}
+@media (max-width: 625px) {
+  .archived-post {
+    padding: 0.25rem 0rem;
+  }
+  .archived-post:hover {
+    background: #e7f1ff;
+    box-shadow: none;
+  }
+  .nav-links {
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .nav-links li {
+    margin: 0px;
+    margin-top: 1rem;
+  }
+  .nav-links li a {
+    padding: 0.25rem 0.5rem 0.3rem;
+  }
+  .main-content {
+    padding: 0rem 1.25rem;
+  }
+  .main-header {
+    border: 1px solid transparent;
+    padding: 0rem 0.75rem;
+    background: #001435;
+    color: #fefefe;
+    margin: 0;
+    margin-bottom: 1.5rem;
+    box-shadow: 0px 10px 0px #002868, 0px 20px 0px #bf0a30, 0px 30px 0px #ffd700;
+  }
+  .main-header .content h1 {
+    color: inherit;
+    font-size: 2rem;
+  }
 }
