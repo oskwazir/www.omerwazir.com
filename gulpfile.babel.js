@@ -24,7 +24,16 @@ const paths = {
   styles:['src/styles/main.less'],
   jade:['src/**/*.jade','!src/_layouts/**/*.jade'],
   layouts:['src/layouts/*.jade']
-} 
+}
+
+const months = ['January','February','March','April','May','June','July',
+'August','September','October','November','December'];
+
+const prettyDate = (date) => {
+  const prettyDate = new Date(date);
+  console.log(`${months[prettyDate.getMonth()]} ${prettyDate.getDate()} ${prettyDate.getFullYear()}`);
+  return `${months[prettyDate.getMonth()]} ${prettyDate.getDate()} ${prettyDate.getFullYear()}`;
+}
 
 let postAttributes = [];
 let betterPostAttributes = new Map();
@@ -82,12 +91,12 @@ gulp.task('posts',(done) => {
       if(!betterPostAttributes.has(post.data.title)){
         betterPostAttributes.set(post.data.title,post.data);
       }
-      
+
       post.content = marked(post.content);
       file.contents = new Buffer(jadePostRender({
         title:post.data.title,
         lead:post.data.lead,
-        date:post.data.date,
+        prettyDate: prettyDate(post.data.date),
         content:post.content
       }));
       return;
