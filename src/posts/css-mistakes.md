@@ -1,8 +1,8 @@
 ---
 title: CSS Mistakes
 tags: ['css']
-lead: ""
-date: 2015-07-05 17:48:13
+lead: "Pam Selle wrote a great article in Net Magazine about avoiding the top CSS mistakes that we all make."
+date: 2014-04-10 17:48:13
 ---
 <a href="http://www.creativebloq.com/css3/avoid-css-mistakes-10135080" title="10 CSS mistakes every web designer must avoid">10 CSS mistakes every web designer must avoid</a>
 

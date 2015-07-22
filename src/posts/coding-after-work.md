@@ -1,8 +1,8 @@
 ---
 title: Coding after work
 tags: ['coding']
-lead: ""
-date: 2015-07-05 17:49:13
+lead: "I posted an answer to this question on Hacker News but I feel like there's more I need to explain."
+date: 2014-04-01 17:49:13
 ---
 [My original answer](https://news.ycombinator.com/item?id=7475549)
 

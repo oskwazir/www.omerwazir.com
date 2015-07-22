@@ -31,7 +31,6 @@ const months = ['January','February','March','April','May','June','July',
 
 const prettyDate = (date) => {
   const prettyDate = new Date(date);
-  console.log(`${months[prettyDate.getMonth()]} ${prettyDate.getDate()} ${prettyDate.getFullYear()}`);
   return `${months[prettyDate.getMonth()]} ${prettyDate.getDate()} ${prettyDate.getFullYear()}`;
 }
 

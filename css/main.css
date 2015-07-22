@@ -181,7 +181,7 @@ th {
           font-variant-ligatures: common-ligatures;
 }
 html {
-  font: 24px/1.5 "chaparral-pro", "calluna", "georgia", serif;
+  font: 24px/1.5 "calluna", "georgia", serif;
   text-rendering: optimizelegibility;
   -webkit-font-feature-settings: "liga";
           font-feature-settings: "liga";
