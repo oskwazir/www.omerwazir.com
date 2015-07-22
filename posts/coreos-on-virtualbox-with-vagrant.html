@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Omer Wazir</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/main.min.css">
+	</head>
+	<body>
+		<div class="post-navbar"><a href="/" class="title">Omer Wazir</a>
+			<nav class="navigation">
+				<ul class="nav-links list-unstyled"> 
+					<li><a href="https://github.com/thewazir" target="_blank">github</a></li>
+					<li><a href="/about.html">about me</a></li>
+					<li> <a href="https://twitter.com/thewazir" target="_blank">twitter</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container">
+			<div class="post-content">
+				<h1 class="title">Getting CoreOS to work properly with Vagrant and VirtualBox</h1>
+				<p class="date">February 23 2015</p>
+				<p class="lead">I wanted to start playing with CoreOS and decided to use Vagrant and VirtualBox. There were steps I needed to do to get the cluster working correctly. The documentation covered what I needed to do, I just jumped a step too soon and had some problems.</p>
+				<div class="article"><p>I read the <a href="https://coreos.com/docs/running-coreos/platforms/vagrant/">instructions</a> on setting up CoreOS on Vagrant. I followed the <a href="https://coreos.com/docs/running-coreos/platforms/vagrant/#cloud-config">cloud config</a> steps because I wanted to see what it was like to work with a cluster. Then I followed the steps on <a href="https://coreos.com/docs/running-coreos/platforms/vagrant/#start-up-coreos">starting up CoreOS</a> and I decided it was time to run <code>vagrant up</code> and get things going. Well I ended up with <code>core-01</code> not being able to authenticate...huh.</p>
+<pre><code>vagrant up
+...
+==&gt; core-01: Waiting for machine to boot. This may take a few minutes...
+    core-01: SSH address: 127.0.0.1:2222
+    core-01: SSH username: vagrant
+    core-01: SSH auth method: private key
+    core-01: Warning: Connection timeout. Retrying...
+    core-01: Warning: Authentication failure. Retrying...
+</code></pre><p>Of course I did what I always do and searched <a href="https://duckduckgo.com/?q=authentication+failure+retrying+coreos">DuckDuckGo for “authentication failure retrying coreos”</a> and found this Stack Overflow answer: <a href="http://stackoverflow.com/questions/24867490/coreos-authentication-failure-on-vagrant-up">CoreOS Authentication failure on vagrant up</a>. The answer indicated that I should have read the <a href="https://coreos.com/docs/quickstart/">quickstart</a> part of the CoreOS documentation where it plainly states that if you were to use Vagrant you must do the following:</p>
+<pre><code>$ ssh-add ~/.vagrant.d/insecure_private_key
+</code></pre><p>After doing that <code>vagrant up</code> worked correctly. I could <code>ssh</code> into any core using <code>vagrant ssh core-&lt;number&gt; -- -A</code></p>
+<p>Now that I can <code>ssh</code> into a core I tried to write to <code>etcd</code> following this <a href="https://coreos.com/docs/quickstart/#service-discovery-with-etcd">example</a> but I ended up with another problem.</p>
+<pre><code>curl -L http://127.0.0.1:4001/v1/keys/message -d value=&quot;Hello world&quot;
+Failed connect to 127.0.0.1:4001; Connection refused
+</code></pre><p>Huh I missed something because this should be working. I searched issues on the CoreOS Github repo and found <a href="https://github.com/coreos/docs/issues/21">issue #21</a> where <a href="https://github.com/coreos/docs/issues/21#issuecomment-68761331">this comment</a> illustrated to me that I should have adjusted the <code>config.rb</code> file before trying to test <code>etcd</code>. I needed to uncomment lines to allow the following code to become functional.</p>
+<pre><code>
+$new_discovery_url=&#39;https://discovery.etcd.io/new&#39;
+
+# To automatically replace the discovery token on &#39;vagrant up&#39;, uncomment
+# the lines below:
+#
+if File.exists?(&#39;user-data&#39;) &amp;&amp; ARGV[0].eql?(&#39;up&#39;)
+ require &#39;open-uri&#39;
+ require &#39;yaml&#39;
+
+ token = open($new_discovery_url).read
+
+ data = YAML.load(IO.readlines(&#39;user-data&#39;)[1..-1].join)
+ data[&#39;coreos&#39;][&#39;etcd&#39;][&#39;discovery&#39;] = token
+
+ yaml = YAML.dump(data)
+ File.open(&#39;user-data&#39;, &#39;w&#39;) { |file| file.write(&quot;#cloud-config\n\n#{yaml}&quot;) }
+end
+#
+</code></pre><p>After fixing that I could run the following on core-01</p>
+<pre><code>curl -L http://127.0.0.1:4001/v1/keys/message -d value=&quot;Hello world&quot;
+</code></pre><p>and I could read the value of <code>message</code> across all of the cores. Pretty neat.</p>
+</div>
+			</div>
+		</div>
+	</body>
+</html>
