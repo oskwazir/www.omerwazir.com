@@ -36,6 +36,7 @@ const prettyDate = (date) => {
 
 let postAttributes = [];
 let betterPostAttributes = new Map();
+let postPath = "posts/";
 
 gulp.task('browser-sync',  ['build'], () => {
   browserSync({
@@ -80,12 +81,16 @@ gulp.task('jade',['posts'], () => {
   .pipe(gulp.dest('./'));
 })
 
+gulp.task('pages', () => {
+  return gulp.src(paths.pages)
+})
+
 gulp.task('posts',(done) => {
   const stream =  gulp.src(paths.markdown)
     .pipe($.changed('./posts'))
     .pipe($.data((file) => {
       const post = grayMatter(String(file.contents));
-      post.data.path = `posts/${file.relative.split('.md').join('.html')}`;
+      post.data.path = `posts/${file.relative.split('.md').join('/')}`;
 
       if(!betterPostAttributes.has(post.data.title)){
         betterPostAttributes.set(post.data.title,post.data);
@@ -101,9 +106,11 @@ gulp.task('posts',(done) => {
       return;
     }))
   .pipe($.rename((path) => {
+      path.dirname = path.basename;
+      path.basename = 'index';
       path.extname = '.html';
     }))
-  .pipe(gulp.dest('./posts'));
+  .pipe(gulp.dest(postPath));
 
     stream.on('end', () => {
       postAttributes = sortBy([...betterPostAttributes.values()],(post) => {
