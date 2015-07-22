@@ -92,9 +92,10 @@ echo Handling deployment.
 
 :: 1. KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
-  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.deployment;deploy.cmd;package.json;gulpfile.babel.js;READEME.md;LICENSE.md;"
+  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 500 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.deployment;deploy.cmd;package.json;gulpfile.babel.js;READEME.md;LICENSE.md;node_modules/;src/"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
+
 
 :: 2. Dowloading io.js
 if not exist "D:\home\site\bin" mkdir D:\home\site\bin
