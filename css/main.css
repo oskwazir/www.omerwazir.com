@@ -181,7 +181,7 @@ th {
           font-variant-ligatures: common-ligatures;
 }
 html {
-  font: 24px/1.5 "calluna", "georgia", serif;
+  font: 24px/1.5 "chaparral-pro", "calluna", "georgia", serif;
   text-rendering: optimizelegibility;
   -webkit-font-feature-settings: "liga";
           font-feature-settings: "liga";
@@ -191,7 +191,7 @@ html {
      -moz-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
-  background: #fefefe;
+  background: #fcfcfc;
 }
 body,
 .archived-post {
@@ -204,7 +204,7 @@ h1,
 .title,
 .date,
 a {
-  font-family: "calluna sans", "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
+  font-family: "calluna-sans", "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
 }
 h1 {
   font-size: 1.5rem;
@@ -244,7 +244,7 @@ a {
   margin: 0px;
   margin-bottom: 5rem;
   background: #001435;
-  color: #fefefe;
+  color: #fcfcfc;
   box-shadow: 0px 10px 0px #002868, 0px 20px 0px #bf0a30, 0px 30px 0px #ffd700;
 }
 .main-header .nav-links {
@@ -259,15 +259,21 @@ a {
 .main-header .content h1 {
   text-align: center;
   font-size: 4rem;
-  font-family: "calluna sans", "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
+  font-family: "calluna-sans", "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
   color: inherit;
   font-weight: 900;
   margin: 0;
   margin-bottom: 1rem;
 }
 .main-header .content a {
+  letter-spacing: 3px;
   color: inherit;
   padding: 0.5rem 1rem 0.6rem 1rem;
+  text-transform: uppercase;
+  font-variant-caps: normal;
+  -webkit-font-feature-settings: "liga";
+          font-feature-settings: "liga";
+  font-size: 1.1rem;
 }
 .main-content,
 .main-header {
@@ -324,7 +330,7 @@ a {
 }
 .post-navbar {
   background: #001435;
-  color: #fefefe;
+  color: #fcfcfc;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -437,7 +443,7 @@ a {
     border: 1px solid transparent;
     padding: 0rem 0.75rem;
     background: #001435;
-    color: #fefefe;
+    color: #fcfcfc;
     margin: 0;
     margin-bottom: 1.5rem;
     box-shadow: 0px 10px 0px #002868, 0px 20px 0px #bf0a30, 0px 30px 0px #ffd700;
