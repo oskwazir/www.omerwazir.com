@@ -92,7 +92,7 @@ echo Handling deployment.
 
 :: 1. KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
-  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 500 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.deployment;deploy.cmd;package.json;gulpfile.babel.js;READEME.md;LICENSE.md;node_modules/;src/"
+  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 500 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.deployment;deploy.cmd;package.json;gulpfile.babel.js;README.md;LICENSE.md;node_modules;src"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
