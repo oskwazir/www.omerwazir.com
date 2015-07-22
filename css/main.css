@@ -186,6 +186,9 @@ html {
   -webkit-font-feature-settings: "liga";
           font-feature-settings: "liga";
 }
+body {
+  background: #fcfcfc;
+}
 .container {
   -webkit-hyphens: auto;
      -moz-hyphens: auto;
