@@ -3,6 +3,7 @@
 const marked = require('marked');
 const jade = require('jade');
 const jadePostRender = jade.compileFile('./src/_layouts/posts/post.jade',{pretty:'\t'});
+const jadePageRender = jade.compileFile('./src/_layouts/pages/page.jade',{pretty:'\t'});
 const gulp = require('gulp');
 const del = require('del');
 const browserSync = require('browser-sync');
@@ -23,6 +24,7 @@ const paths = {
   markdown:['src/posts/*.md'],
   styles:['src/styles/main.less'],
   jade:['src/**/*.jade','!src/_layouts/**/*.jade'],
+  pages:['src/pages/*.md'],
   layouts:['src/layouts/*.jade']
 }
 
@@ -51,7 +53,7 @@ gulp.task('browser-sync',  ['build'], () => {
 });
 
 gulp.task('clean', (cb) => {
-  del(['css','posts','404.html','500.html','index.html'], cb);
+  del(['css','posts','404.html','500.html','index.html','about','build','dist'], cb);
 });
  
 gulp.task('styles', () => {
@@ -81,8 +83,33 @@ gulp.task('jade',['posts'], () => {
   .pipe(gulp.dest('./'));
 })
 
-gulp.task('pages', () => {
-  return gulp.src(paths.pages)
+gulp.task('pages',(done) => {
+  const stream =  gulp.src(paths.pages)
+    .pipe($.data((file) => {
+      const post = grayMatter(String(file.contents));
+      post.data.path = `posts/${file.relative.split('.md').join('/')}`;
+      
+      post.content = marked(post.content);
+
+      file.contents = new Buffer(jadePageRender({
+        title:post.data.title,
+        content:post.content
+      }));
+      return;
+    }))
+  .pipe($.rename((path) => {
+      path.dirname = path.basename;
+      path.basename = 'index';
+      path.extname = '.html';
+    }))
+  .pipe(gulp.dest('./'));
+  stream.on('end', () => {
+    done();
+  });
+  stream.on('error', (err) => {
+    console.error(err);
+    done(err);
+  });
 })
 
 gulp.task('posts',(done) => {
@@ -97,6 +124,7 @@ gulp.task('posts',(done) => {
       }
 
       post.content = marked(post.content);
+
       file.contents = new Buffer(jadePostRender({
         title:post.data.title,
         lead:post.data.lead,
@@ -128,7 +156,7 @@ gulp.task('posts',(done) => {
 
 
 
-gulp.task('build', ['styles','jade']);
+gulp.task('build', ['styles','jade','pages']);
 
 gulp.task('watch', function(){
   gulp.watch(paths.markdown,['posts']);
