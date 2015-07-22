@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//use.typekit.net/ydg4luq.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Omer Wazir</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/main.min.css">
+	</head>
+	<body>
+		<div class="post-navbar"><a href="/" class="title">Omer Wazir</a>
+			<nav class="navigation">
+				<ul class="nav-links list-unstyled"> 
+					<li><a href="https://github.com/thewazir" target="_blank">github</a></li>
+					<li><a href="/about">about me</a></li>
+					<li> <a href="https://twitter.com/thewazir" target="_blank">twitter</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container">
+			<div class="post-content">
+				<h1 class="title">getDOMNode in React is deprecated and replaced with findDOMNode.</h1>
+				<p class="date">February 4 2015</p>
+				<p class="lead">I have been using React 0.13.0-beta.1 and just last night got Jest to run my tests. There was a warning while running my tests that `getDOMNode` is deprecated but I didn't know what to use instead. Some digging around the React repo on Github indicated I should be using `React.findDOMNode`.</p>
+				<div class="article"><p>React 0.13.0-beta.1 supports writing ES6 classes instead of calling React.createClass. See this React blog <a href="https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html">post</a> for more details. I’ve been building a little app with 0.13.0-beta.1 and spent some time getting Jest to work with the components (or are they elements now?) I wrote. I was able to get my tests to pass but a warning kept popping up.</p>
+<pre><code>jest.dontMock(&#39;../build/PokemonRow.react&#39;);
+describe(&#39;PokemonRow&#39;, function() {
+  it(&#39;displays the name of the Pokemon&#39;, function() {
+    var React = require(&#39;react/addons&#39;);
+    var PokemonRow = require(&#39;../build/PokemonRow.react&#39;);
+    var TestUtils = React.addons.TestUtils;
+
+    // Render a paragraph element with the name of a fake pokemon
+    var pokemon = {name:&#39;Wuzzy&#39;};
+    var pokemonRow = TestUtils.renderIntoDocument(&lt;PokemonRow pokemon={pokemon} key={pokemon.name}/&gt;);
+
+    // Verify that it actually was made.
+    var name = TestUtils.findRenderedDOMComponentWithTag(pokemonRow,&#39;p&#39;);
+    expect(name.getDOMNode().textContent).toEqual(pokemon.name);
+  });
+});
+</code></pre><pre><code>Using Jest CLI v0.2.2
+ PASS  __tests__/PokemonRow-test.js (2.105s)
+Warning: getDOMNode(...) is deprecated in plain JavaScript React classes.
+Warning: getDOMNode(...) is deprecated in plain JavaScript React classes.
+1 test passed (1 total)
+Run time: 2.29s
+</code></pre><p>The online documentation for React didn&#39;t say anything about <code>getDOMNode</code> being deprecated. I figured that since I&#39;m using a beta version the docs aren&#39;t online yet. So I went to the React repo on Github and searched for the warning string <code>is deprecated in plain JavaScript React classes</code>. I found the message in <code>react/src/modern/class/ReactComponent.js</code> but I still didn&#39;t understand what to use instead of <code>getDOMNode</code>. I searched for <code>getDOMNode</code> and found a <a href="https://github.com/facebook/react/pull/2802/files">pull request</a> updating the documentation to replace <code>getDOMNode</code> with <code>React.findDOMNode</code>. I replaced <code>getDOMNode</code> and <code>findRenderedDOMComponentWithTag</code> with just <code>React.findDOMNode</code> and the warnings went away.</p>
+<pre><code>jest.dontMock(&#39;../build/PokemonRow.react&#39;);
+describe(&#39;PokemonRow&#39;, function() {
+  it(&#39;displays the name of the Pokemon&#39;, function() {
+    var React = require(&#39;react/addons&#39;);
+    var PokemonRow = require(&#39;../build/PokemonRow.react&#39;);
+    var TestUtils = React.addons.TestUtils;
+
+    // Render a paragraph element with the name of a fake pokemon
+    var pokemon = {name:&#39;Wuzzy&#39;};
+    var pokemonRow = TestUtils.renderIntoDocument(&lt;PokemonRow pokemon={pokemon} key={pokemon.name}/&gt;);
+
+    // Verify that it actually was made with the right name.
+    var name = React.findDOMNode(pokemonRow).textContent;
+    expect(name).toEqual(pokemon.name);
+  });
+});
+</code></pre><pre><code>Using Jest CLI v0.2.2
+ PASS  __tests__/PokemonRow-test.js (2.047s)
+1 test passed (1 total)
+Run time: 2.243s
+</code></pre><p>NOTE: Initially I did a very dumb thing and forgot to run an ES6 to ES5 transpiler before running unit tests. I was running gulp-react to transform the JSX to Javascript but had a total brain fart about needing to convert the ES6 class definition. During my regular build process I use 6to5 during my Browserify packaging which happens after JSX. My unit tests just use the post-JSX files. I kept getting errors about and <code>Unexpected reserved word</code> and I thought something about the html markup in my component was off. I realised my mistake and have JSX and 6to5 happening during the same gulp task.</p>
+</div>
+			</div>
+		</div>
+	</body>
+</html>

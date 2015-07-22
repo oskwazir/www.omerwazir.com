@@ -1,2 +1,2 @@
 [config]
-command = azure-deploy.cmd
+command = bash deploy.sh
