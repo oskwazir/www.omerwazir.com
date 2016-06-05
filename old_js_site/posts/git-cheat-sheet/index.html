@@ -162,9 +162,9 @@ git config --global user.email johndoe@example.com
 <pre><code>git rm --cached &lt;file1&gt; &lt;file2&gt; ...
 </code></pre><hr>
 <h3 id="ignoring">Ignoring</h3>
-<h4 id="option-1-">Option 1:</h4>
+<p>####Option 1:</p>
 <p>Edit $GIT_DIR/.git/info/exclude. See Environment Variables below for explanation on $GIT_DIR.</p>
-<h4 id="option-2-">Option 2:</h4>
+<p>####Option 2:</p>
 <p>Add a file .gitignore to the root of your project. This file will be checked in.</p>
 <p>Either way you need to add patterns to exclude to these files.</p>
 <hr>
@@ -393,7 +393,7 @@ from the new remote.</p>
 <pre><code>git submodule update [--init]
 </code></pre><p>Executes the given command within each checked out submodule.</p>
 <pre><code>git submodule foreach &lt;command&gt;
-</code></pre><h4 id="removing-submodules-">Removing submodules:</h4>
+</code></pre><p>####Removing submodules:</p>
 <ol>
 <li>Delete the relevant line from the .gitmodules file.</li>
 <li>Delete the relevant section from .git/config.</li>
@@ -404,8 +404,8 @@ from the new remote.</p>
 <li><p>Commit and delete the now untracked submodule files.</p>
 </li>
 </ol>
-<h4 id="updating-submodules">Updating submodules</h4>
-<p>To update a submodule to a new commit:</p>
+<p>####Updating submodules
+To update a submodule to a new commit:</p>
 <ol>
 <li><p>update submodule:</p>
 <pre><code>  cd &lt;path to submodule&gt;

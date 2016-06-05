@@ -25,36 +25,36 @@
 				<h1 class="title">Notes on Reducing Complexity</h1>
 				<p class="date">May 11 2014</p>
 				<p class="lead">I've written a collection of notes while reading Chapter 2 of Testable Javascript. Please don't assume what I've written is completely correct, these notes reflect my interpretation of the book's contents.</p>
-				<div class="article"><h2 id="how-to-reduce-code-complexity">How to reduce code complexity</h2>
-<h3 id="command-query-separation">Command Query Separation</h3>
-<p>Start writing smaller functions by separating the actions that a method performs. Command query separation is about keeping command and query actions in different functions. Commands are functions that are similar to <span class='italic'>setters</span> in that they <span class="italic">do</span> something. Queries then are similar to <span class='italic'>getters</span> in that they <span class="italic">return</span> something. So you wouldn&#39;t want to combine <span class="italics">getters</span> and <span class="italics">setters</span> in one function. The benefit of this shows up once you try writing unit tests for functions where command query separation was maintained. You&#39;ll end up being able to write tests that are focused for each function.</p>
-<h3 id="hinting-and-linting">Hinting and Linting</h3>
-<p>Keep your code sane. Run JSHint (or JSLint) on it. From the <a href="http://www.jshint.com/about/">JSHint website</a></p>
+				<div class="article"><p>##How to reduce code complexity</p>
+<p>###Command Query Separation
+Start writing smaller functions by separating the actions that a method performs. Command query separation is about keeping command and query actions in different functions. Commands are functions that are similar to <span class='italic'>setters</span> in that they <span class="italic">do</span> something. Queries then are similar to <span class='italic'>getters</span> in that they <span class="italic">return</span> something. So you wouldn&#39;t want to combine <span class="italics">getters</span> and <span class="italics">setters</span> in one function. The benefit of this shows up once you try writing unit tests for functions where command query separation was maintained. You&#39;ll end up being able to write tests that are focused for each function.</p>
+<p>###Hinting and Linting
+Keep your code sane. Run JSHint (or JSLint) on it. From the <a href="http://www.jshint.com/about/">JSHint website</a></p>
 <blockquote>
 <p>Any code base eventually becomes huge at some point, and simple mistakes—that would not show themselves when written—can become show stoppers and waste hours of debugging. And this is when static code analysis tools come into play and help developers to spot such problems. JSHint scans a program written in JavaScript and reports about commonly made mistakes and potential bugs. The potential problem could be a syntax error, a bug due to implicit type conversion, a leaking variable or something else.</p>
 </blockquote>
-<h3 id="cyclomatic-complexity">Cyclomatic Complexity</h3>
-<p>The number of independent paths a piece of code can take. Cyclomatic complexity is calculated using numbers for each path, the higher the number the more complicated the code is. For each path you will need to write a test for it, so try not to have all of the tests just be for one function. Instead break up the function so that the tests are spread across functions. Maintaining the tests will then be simpler. Supposedly you should keep your cyclomatic complexity (sounds like a hair dryer) below 10. This is one thing that should never go to 11.</p>
+<p>###Cyclomatic Complexity
+The number of independent paths a piece of code can take. Cyclomatic complexity is calculated using numbers for each path, the higher the number the more complicated the code is. For each path you will need to write a test for it, so try not to have all of the tests just be for one function. Instead break up the function so that the tests are spread across functions. Maintaining the tests will then be simpler. Supposedly you should keep your cyclomatic complexity (sounds like a hair dryer) below 10. This is one thing that should never go to 11.</p>
 <p>Browsing npm for ‘complexity’ resulted in these two popular tools. </p>
 <ul>
 <li><a href="https://www.npmjs.org/package/complexity-report">complexity-report</a> Software complexity analysis for JavaScript projects.</li>
 <li><a href="https://www.npmjs.org/package/plato">plato</a> JavaScript source analysis and visualizer.</li>
 </ul>
 <p>Pay attention to the issues on Github to see which tool is actively being maintained.</p>
-<h3 id="reusability">Reusability</h3>
-<p>Try to rely on a library or framework instead of writing code that does the same thing. jQuery, lo-dash, underscore,backbone,angular,knockout,node all do their job extremely well. Writing code to mimic what they do for your application is just a bad idea. You already have plenty to worry about in writing code for your project. So reuse what&#39;s already available.</p>
+<p>###Reusability
+Try to rely on a library or framework instead of writing code that does the same thing. jQuery, lo-dash, underscore,backbone,angular,knockout,node all do their job extremely well. Writing code to mimic what they do for your application is just a bad idea. You already have plenty to worry about in writing code for your project. So reuse what&#39;s already available.</p>
 <p>Reusability also goes to your own code. You might have some code inside a function that converts GMT to Mountain Standard time. You might have another place in your code which converts Nepal Time to Tuvalu time. The code is probably nearly identical except for the timezones that are being converted from and to. Just write a timezone converter function that has it&#39;s logic in one place. And call that function from wherever you were converting time zones. That way if timezone calculations change you change the code in one place, not eleven different places.</p>
-<h3 id="fan-out">Fan-Out</h3>
-<p>The number of dependencies your function directly and indirectly depends on or references. Dependencies are in the form of external modules or objects. Tight coupling can be seen in an object or function with high fan-out. To reduce tight coupling you can use dependency injection or eventing. To reduce fan-out you can use a <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#facadepatternjavascript">facade pattern</a>. Testing code with high fan-out is difficult since mocking and stubbing dependencies is required. Yes really when you spend more time writing mocks and stubs you&#39;ll soon be making changes in your code. It&#39;s that obvious of a problem.</p>
-<h3 id="fan-in">Fan-In</h3>
-<p>Think of fan-in as the inverse of fan-out. It counts how many modules reference a function or object. I&#39;ve taken the official definition of fan-in from the book Testable Javascript:</p>
+<p>###Fan-Out
+The number of dependencies your function directly and indirectly depends on or references. Dependencies are in the form of external modules or objects. Tight coupling can be seen in an object or function with high fan-out. To reduce tight coupling you can use dependency injection or eventing. To reduce fan-out you can use a <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#facadepatternjavascript">facade pattern</a>. Testing code with high fan-out is difficult since mocking and stubbing dependencies is required. Yes really when you spend more time writing mocks and stubs you&#39;ll soon be making changes in your code. It&#39;s that obvious of a problem.</p>
+<p>###Fan-In
+Think of fan-in as the inverse of fan-out. It counts how many modules reference a function or object. I&#39;ve taken the official definition of fan-in from the book Testable Javascript:</p>
 <blockquote>
 <p>The fan-in of procedure A is the number of local flows into procedure A plus the number of data structures from which procedure A retrieves information.</p>
 </blockquote>
 <p>High fan-in should exist for common or utility functions, think of something like authorization checks,logging, formatting, conversions etc... Those are tasks that can be called from anywhere or called frequently. They should have high fan-in. Code that isn&#39;t called frequently such as initialization code should have low fan-in. The idea being that code that isn&#39;t utilized frequently shouldn&#39;t be called or depended on a lot by other modules.</p>
-<h3 id="coupling">Coupling</h3>
-<p>So fan-out counts the number of dependencies a module has, coupling is the relationship between modules. From my experience tight coupling makes it really hard to edit code since changing one thing usually requires editing code in a bunch of other unrelated places too. At first you&#39;ll wonder why in the world is this piece of code referenced all the way in this other place. And hey it&#39;s referenced here too but in a different way and it&#39;s not even used the way it&#39;s supposed to. Then you cry for a day or two and swear you&#39;ll never write tightly coupled code. Of course you don&#39;t write tightly coupled code. It&#39;s always someone else who did it and left you with a maintenance nightmare.</p>
-<h4 id="the-six-levels-of-coupling-small-in-descending-order-of-tightness-small-">The six levels of coupling <small>in descending order of tightness</small></h4>
+<p>###Coupling
+So fan-out counts the number of dependencies a module has, coupling is the relationship between modules. From my experience tight coupling makes it really hard to edit code since changing one thing usually requires editing code in a bunch of other unrelated places too. At first you&#39;ll wonder why in the world is this piece of code referenced all the way in this other place. And hey it&#39;s referenced here too but in a different way and it&#39;s not even used the way it&#39;s supposed to. Then you cry for a day or two and swear you&#39;ll never write tightly coupled code. Of course you don&#39;t write tightly coupled code. It&#39;s always someone else who did it and left you with a maintenance nightmare.</p>
+<p>####The six levels of coupling <small>in descending order of tightness</small></p>
 <ul>
 <li><p>Content Coupling. When you call a method/function on an external object directly, or mutate the object by adding or editing it&#39;s properties.</p>
 </li>
@@ -72,20 +72,20 @@
 </li>
 </ul>
 <p>To move from tight coupling to loose coupling you can use dependency injection. You can also utilize the <a href="http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript">factory pattern</a> (and abstract factory) to make it easier to just ask for an object.</p>
-<h3 id="dependency-injection">Dependency Injection</h3>
-<p>Dependency injection helps release the coupling of an object from it&#39;s dependencies. An object is handed it&#39;s dependencies instead of needing to instantiate them locally. If you aren&#39;t familiar with dependency injection you can read the <a href="http://en.wikipedia.org/wiki/Dependency_injection">wikipedia article</a> and another explanation of dependency injection at the <a href="https://docs.angularjs.org/guide/di">AngularJS docs</a>.</p>
-<h3 id="comments">Comments</h3>
-<p>Commenting code is critical. Just because there is a test for the code that doesn&#39;t mean you are free from commenting your functions. You need to explain to other programmers what is going on. Testable Javascript mentions the following tools for converting comments to documents </p>
+<p>###Dependency Injection
+Dependency injection helps release the coupling of an object from it&#39;s dependencies. An object is handed it&#39;s dependencies instead of needing to instantiate them locally. If you aren&#39;t familiar with dependency injection you can read the <a href="http://en.wikipedia.org/wiki/Dependency_injection">wikipedia article</a> and another explanation of dependency injection at the <a href="https://docs.angularjs.org/guide/di">AngularJS docs</a>.</p>
+<p>###Comments
+Commenting code is critical. Just because there is a test for the code that doesn&#39;t mean you are free from commenting your functions. You need to explain to other programmers what is going on. Testable Javascript mentions the following tools for converting comments to documents </p>
 <ul>
 <li><a href="http://yui.github.io/yuidoc/">YUIDoc</a></li>
 <li><a href="http://usejsdoc.org/">JSDoc</a></li>
 <li><a href="http://jashkenas.github.io/docco/">Docco</a></li>
 <li><a href="http://rtomayko.github.io/rocco/">Rocco</a> - Ruby port of Docco </li>
 </ul>
-<h3 id="peer-review">Peer review</h3>
-<p>Finally have someone else review your code. If another programmer can&#39;t understand your code than there&#39;s a real obvious problem with complexity.</p>
-<h3 id="naming-your-variables">Naming your variables</h3>
-<p>I&#39;d like to add my own little thing here for reducing complexity. Use proper naming conventions for variables, objects, functions. Please don&#39;t do this:</p>
+<p>###Peer review
+Finally have someone else review your code. If another programmer can&#39;t understand your code than there&#39;s a real obvious problem with complexity.</p>
+<p>###Naming your variables
+I&#39;d like to add my own little thing here for reducing complexity. Use proper naming conventions for variables, objects, functions. Please don&#39;t do this:</p>
 <pre><code>var c = SomeFunction();
 </code></pre><p>I have no clue at all what kind of thing c is supposed to be. Will it be an object, a number, a boolean. What is it for? Also don&#39;t do this:</p>
 <pre><code>var value = AnotherFunction();
