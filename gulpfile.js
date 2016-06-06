@@ -22,7 +22,7 @@ gulp.task('styles', () => {
         .pipe($.autoprefixer({
             browsers: ['last 2 versions']
         }))
-        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest('priv/static/css'))
         .pipe($.csso())
         .pipe($.rename((path) => {
             path.extname = '.min.css';
