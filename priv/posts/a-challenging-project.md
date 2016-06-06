@@ -2,7 +2,7 @@
 title: A Challenging Project
 layout: post
 tags: ['javascript','work']
-lead: "I recently completed a contract to build a web application where I was not allowed to use any open-source tools/code.
+intro: "I recently completed a contract to build a web application where I was not allowed to use any open-source tools/code.
 I want to share my thoughts now before I forget everything I learned."
 date: 2015-10-04
 ---

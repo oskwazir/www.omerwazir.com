@@ -2,7 +2,7 @@
 title: Adding custom icons to ionicons
 layout: post
 tags: ['ionic']
-lead: "Adding custom icons to ionicons is very simple thanks to build scripts provided with the ionicons sources. I have listed out the basic steps to get a custom icon working natively with ionic"
+intro: "Adding custom icons to ionicons is very simple thanks to build scripts provided with the ionicons sources. I have listed out the basic steps to get a custom icon working natively with ionic"
 date: 2014-10-29
 ---
 

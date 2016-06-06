@@ -1,7 +1,7 @@
 ---
 title: Coding after work
 tags: ['coding']
-lead: "I posted an answer to this question on Hacker News but I feel like there's more I need to explain."
+intro: "I posted an answer to this question on Hacker News but I feel like there's more I need to explain."
 date: 2014-04-01
 ---
 [My original answer](https://news.ycombinator.com/item?id=7475549)

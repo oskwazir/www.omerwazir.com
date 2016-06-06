@@ -2,7 +2,7 @@
 title: The Git Cheat Sheet
 layout: post
 tags: ['git','cheat-sheet','post']
-lead: "Here's a great cheet sheet for git that'll help you figure out some pretty cool tasks"
+intro: "Here's a great cheet sheet for git that'll help you figure out some pretty cool tasks"
 date: 2014-03-04
 ---
 

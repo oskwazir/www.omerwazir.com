@@ -2,7 +2,7 @@
 title: I started learning React and so far I like it.
 layout: post
 tags: ['js','react']
-lead: "I ignored React for a while. I would see comments on reddit and hacker news of people loving the way React worked. I just didn’t care enough to make an effort and understand what React was all about. After watching the keynote at React Conf I realized that React is dog food and the idea of building views made of components was something I advocated at work for a long time. Now I’m taking the slow effort of understanding how to build stuff with React."
+intro: "I ignored React for a while. I would see comments on reddit and hacker news of people loving the way React worked. I just didn’t care enough to make an effort and understand what React was all about. After watching the keynote at React Conf I realized that React is dog food and the idea of building views made of components was something I advocated at work for a long time. Now I’m taking the slow effort of understanding how to build stuff with React."
 date: 2015-02-03
 ---
 

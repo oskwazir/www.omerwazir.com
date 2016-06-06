@@ -2,7 +2,7 @@
 title: I need to finish these books
 layout: post
 tags: ['books']
-lead: "I'm going to share with you the list of books I haven't finished reading. I'm hoping that by publically displaying my desired goal I'll stick with the plan. I won't buy any new books or change this list until all have been read."
+intro: "I'm going to share with you the list of books I haven't finished reading. I'm hoping that by publically displaying my desired goal I'll stick with the plan. I won't buy any new books or change this list until all have been read."
 date: 2014-05-08
 ---
 

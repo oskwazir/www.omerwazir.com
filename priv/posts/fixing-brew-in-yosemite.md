@@ -2,7 +2,7 @@
 title: Problems running Homebrew on Yosemite
 layout: post
 tags: ['homebrew']
-lead: "I’ve been running Yosemite since beta and now am running the release version. In that much time I never tried to use Homebrew until today and of course Homebrew wouldn’t work. I searched around online and found how to fix the two probelms I was having."
+intro: "I’ve been running Yosemite since beta and now am running the release version. In that much time I never tried to use Homebrew until today and of course Homebrew wouldn’t work. I searched around online and found how to fix the two probelms I was having."
 date: 2014-10-24
 ---
 

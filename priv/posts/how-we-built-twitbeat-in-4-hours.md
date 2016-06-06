@@ -1,7 +1,7 @@
 ---
 title: How we built TwitBeat in 4 hours
 tags: ['js','react']
-lead: "For the Cactus Hack Hackathon my team built a very simple app called TwitBeat. I want to explain to you how we went about building the app and what I learned from the process."
+intro: "For the Cactus Hack Hackathon my team built a very simple app called TwitBeat. I want to explain to you how we went about building the app and what I learned from the process."
 date: 2015-07-23
 ---
 

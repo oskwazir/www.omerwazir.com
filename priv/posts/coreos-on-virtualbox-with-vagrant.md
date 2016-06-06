@@ -2,7 +2,7 @@
 title: Getting CoreOS to work properly with Vagrant and VirtualBox
 layout: post
 tags: ['coreos','vagrant','virtualization']
-lead: "I wanted to start playing with CoreOS and decided to use Vagrant and VirtualBox. There were steps I needed to do to get the cluster working correctly. The documentation covered what I needed to do, I just jumped a step too soon and had some problems."
+intro: "I wanted to start playing with CoreOS and decided to use Vagrant and VirtualBox. There were steps I needed to do to get the cluster working correctly. The documentation covered what I needed to do, I just jumped a step too soon and had some problems."
 date: 2015-02-23
 ---
 

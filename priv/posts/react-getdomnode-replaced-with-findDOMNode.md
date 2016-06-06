@@ -2,7 +2,7 @@
 title: getDOMNode in React is deprecated and replaced with findDOMNode.
 layout: post
 tags: ['js','react']
-lead: "I have been using React 0.13.0-beta.1 and just last night got Jest to run my tests. There was a warning while running my tests that `getDOMNode` is deprecated but I didn't know what to use instead. Some digging around the React repo on Github indicated I should be using `React.findDOMNode`."
+intro: "I have been using React 0.13.0-beta.1 and just last night got Jest to run my tests. There was a warning while running my tests that `getDOMNode` is deprecated but I didn't know what to use instead. Some digging around the React repo on Github indicated I should be using `React.findDOMNode`."
 date: 2015-02-04
 ---
 
