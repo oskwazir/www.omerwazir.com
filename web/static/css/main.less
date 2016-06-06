@@ -1,14 +1,10 @@
 @import (less) "normalize.css";
 
-@font-family-sans-serif: "skolar-sans-latin",
-                          "Avenir Next", 
-                          "Helvetica Neue", 
-                          "Segoe UI",
-                           sans-serif;
+@font-family-sans-serif: "skolar-sans-latin","seravek","Gill Sans","Gill Sans MT",Calibri,sans-serif;
 
-@font-family-serif:"georgia",serif;
+@font-family-serif:"skolar-latin","Bell MT","Hoefler Text",Garamond,Georgia,"Times New Roman",serif;
 
-@monospace-font-family: "inconsolata","monaco", monospace;
+@monospace-font-family: "Andale Mono",AndaleMono,"monaco","Lucida Console","Lucida Sans Typewriter",monaco,"Bitstream Vera Sans Mono",monospace;
 
 @text-color:#444;
 @external-link:#111;
@@ -29,7 +25,7 @@
 }
 
 html {
-  font:18px/1.5 @font-family-sans-serif;
+  font:20px/1.5 @font-family-serif;
   text-rendering:optimizelegibility;
   font-feature-settings:"liga";
 }
@@ -39,6 +35,9 @@ body {
   max-width: 740px;
 }
 
+h1,h2,h3,h4,h5,h6{
+  font-family: @font-family-sans-serif;
+}
 .top-bar{
   margin:0.5rem 2rem;
   padding:1rem;
@@ -55,7 +54,7 @@ p {
 
 pre, code{
   font-family:@monospace-font-family;
-  font-size:1rem;
+  font-size:0.8rem;
   background:darken(@white, 5%);
   padding:0.1rem 0.3rem;
   border-radius:1px;
