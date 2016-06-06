@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://use.typekit.net/xnh4htv.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Omer Wazir">
 
-    <title>Hello StaticBlog!</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <title>Omer Wazir</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.min.css") %>">
   </head>
 
   <body>
+    <div class="top-bar">Omer</div>
     <div class="container">
-      <main role="main">
+      <main class="main-content" role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
     </div> <!-- /container -->

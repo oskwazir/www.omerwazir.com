@@ -1,0 +1,85 @@
+@import (less) "normalize.css";
+
+@font-family-sans-serif: "skolar-sans-latin",
+                          "Avenir Next", 
+                          "Helvetica Neue", 
+                          "Segoe UI",
+                           sans-serif;
+
+@font-family-serif:"georgia",serif;
+
+@monospace-font-family: "inconsolata","monaco", monospace;
+
+@text-color:#444;
+@external-link:#111;
+
+@colorado-blue:#002868;
+@colorado-red:#BF0A30;
+@colorado-yellow:#FFD700;
+@white:#fcfcfc;
+
+//breakpoint at which default layout fails
+@screen-small: 625px;
+
+//breakpoint at which post layout fails
+@screen-medium: 820px;
+
+*{
+    font-variant-ligatures:common-ligatures;
+}
+
+html {
+  font:18px/1.5 @font-family-sans-serif;
+  text-rendering:optimizelegibility;
+  font-feature-settings:"liga";
+}
+
+body {
+  background:@white;
+  max-width: 740px;
+}
+
+.top-bar{
+  margin:0.5rem 2rem;
+  padding:1rem;
+}
+
+.container{
+  margin:1rem 2rem;
+  padding:1rem;
+}
+
+p {
+  font-size:1rem;
+}
+
+pre, code{
+  font-family:@monospace-font-family;
+  font-size:1rem;
+  background:darken(@white, 5%);
+  padding:0.1rem 0.3rem;
+  border-radius:1px;
+}
+
+article{
+  margin-bottom:4rem;
+}
+
+a, .date{
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp";
+}
+
+a{
+  text-decoration: none;
+  text-transform: lowercase;
+  transition:background 0.2s ease-in;
+}
+
+
+.title{
+  font-weight:400;
+  color:@colorado-blue;
+}
+
+
