@@ -1,6 +1,7 @@
 <p><a href="<%= page_path(@conn, :index) %>">&laquo; Back to index</a></p>
 <article>
-  <h1><%= @post.title %></h1>
-  <p><%= Timex.format!(@post.date, "{Mshort} {D} {YYYY}") %></p>
+  <h1 class="post"><%= @post.title %></h1>
+  <p class="date"><%= Timex.format!(@post.date, "{Mshort} {D} {YYYY}") %></p>
+  <p class="intro"> <%= @post.intro %></p>
   <%= raw(@post.content) %>
 </article>

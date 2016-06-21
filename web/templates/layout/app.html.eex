@@ -10,11 +10,17 @@
     <meta name="author" content="Omer Wazir">
 
     <title>Omer Wazir</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.min.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/main.css") %>">
   </head>
 
   <body>
-    <div class="top-bar">Omer</div>
+    <div class="top-bar">
+      <div class="cool-dude">Omer Wazir</div>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/about">Who is this guy &#63;</a>
+      </div>
+    </div>
     <div class="container">
       <main class="main-content" role="main">
         <%= render @view_module, @view_template, assigns %>

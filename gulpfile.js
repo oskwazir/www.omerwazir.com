@@ -14,6 +14,7 @@ gulp.task('clean', (cb) => {
  
 gulp.task('styles', () => {
     return gulp.src(paths.styles)
+	.pipe($.sourcemaps.init())
         .pipe($.less())
         .on('error', (err) => {
             console.error(err.toString());
@@ -22,11 +23,8 @@ gulp.task('styles', () => {
         .pipe($.autoprefixer({
             browsers: ['last 2 versions']
         }))
-        .pipe(gulp.dest('priv/static/css'))
         .pipe($.csso())
-        .pipe($.rename((path) => {
-            path.extname = '.min.css';
-        }))
+	.pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest('priv/static/css'));
 });
 
