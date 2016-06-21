@@ -34,3 +34,4 @@ gulp.task('watch',() => {
 
 gulp.task('default', ['watch','styles']);
 
+gulp.task('dist',['styles']);
