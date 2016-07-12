@@ -8,7 +8,7 @@ date: 2015-07-23
 [Cactus Hack](http://cactushack.com/) took place in Tucson and there was a pretty good turnout. People started showing up around 9:00am, sometime between 10:00am or 10:30am the hosts started a presentation explaining the rules and awards of the hackathon. Teams had to build something that was a web-app, no console or desktop apps. And there had to be a cactus or cacti somewhere in the app. After the presentation people broke into self-made groups of 4 or 5 and started to brainstorm ideas. We were only allowed to code between 1:00pm and 5:00pm so there was quite a bit of time to plan, and eat. I partnered with my friends [Charlie](https://github.com/bringking) and [Clay](https://github.com/theshortcut).
 
 
-## What should we  build?
+## What should we build?
 
 I had no ideas at all. Charlie had an idea of a heartbeat app, something that displayed a line like you see in an [ECG](https://en.wikipedia.org/wiki/Electrocardiography) chart or [Oscilloscope](https://en.wikipedia.org/wiki/Oscilloscope).Charlie thought we could hook into the [Github API](https://developer.github.com/v3/) and monitor the rate of stars on repos or something. There was some concern with rate limiting on the API so we turned towards Twitter. I’m not actually sure if the rate limiting would have been a problem, need to look into that later. There was concern again because the [Twitter REST API](https://dev.twitter.com/rest/public) has a rate limit on it, but I remembered from messing around with [Storm](http://storm.apache.org/) that Twitter has a [Streaming API](https://dev.twitter.com/streaming/overview).
 
