@@ -1,17 +1,25 @@
+---
+title: Building something with Kismet and Elixir
+tags: ['coding']
+intro: "Kismet is a wireless sniffing tool that can pull an insane amount of information from wireless data. I want to build something with Elixir so lets build a web UI to show data we get from Kismet."
+date: 2016-10-03
+---
+
+
 Download the latest version of Raspian from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/) and follow the instructions for burning the image to an SD card. You can find instructions [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) I prefer to use the Raspbian Lite distrubution because I don’t use the desktop or any GUI applications.
 
-##Get dependencies
+## Get dependencies
 ```
 sudo apt-get update
 
 sudo apt-get upgrade -y
 sudo apt-get install wget m4 vim libncurses5-dev libpcap-dev libpcre3-dev libnl-dev
 ethtool iw rfkill build-essential autoconf openssl libssl-dev fop xsltproc unixodbc-dev git
-'''
+```
 
-##Kismet
+## Kismet
 
-'''
+```
 
 mkdir /kismet
 cd ./kismet
@@ -55,9 +63,9 @@ sudo make suidinstall
 
 ```
 
-##aircrack-ng
+## aircrack-ng
 
-'''
+```
 cd ~/
 mkidr aircrack
 cd ./aircrack
@@ -67,4 +75,4 @@ cd ./aircrack-ng-1.2-rc4.tar
 make
 sudo make install
 airodump-ng-oui-update
-'''
+```
