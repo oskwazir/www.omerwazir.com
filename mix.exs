@@ -36,6 +36,6 @@ defmodule StaticBlog.Mixfile do
      {:yamerl, github: "yakaz/yamerl"},
      {:timex, "~> 2.1.6"},
      {:cowboy, "~> 1.0"},
-     {:earmark, "~> 0.2.1"}]
+     {:earmark, "~> 1.0.3"}]
   end
 end
