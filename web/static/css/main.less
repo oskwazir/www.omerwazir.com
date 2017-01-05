@@ -45,7 +45,7 @@ html.wf-active {
 
 body {
   background:@white;
-  max-width: 740px;
+  max-width: 960px;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -71,11 +71,8 @@ h1,h2,h3,h4,h5,h6{
   
   .links{
     a{
-      margin-right:0.75rem;
-    }
-
-    a:nth-last-of-type(1){
-      margin:0rem;
+      margin: 0rem;
+      margin-right:2rem;
     }
   }
 }
@@ -93,8 +90,16 @@ pre, code{
   font-family:@monospace-font-family;
   font-size:0.8rem;
   background:darken(@white, 5%);
-  padding:0.1rem 0.3rem;
   border-radius:1px;
+  width:90vw;
+}
+
+pre{
+    padding:0.25rem 0.5rem;
+}
+
+pre > code{
+    padding:0rem;
 }
 
 article{
