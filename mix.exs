@@ -32,9 +32,9 @@ defmodule StaticBlog.Mixfile do
     [{:phoenix, "~> 1.1.4"},
      {:phoenix_html, "~> 2.4"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:gettext, "~> 0.9"},
+     {:gettext, "~> 0.11.0"},
      {:yamerl, github: "yakaz/yamerl"},
-     {:timex, "~> 2.1.6"},
+     {:timex, ">= 2.1.6"},
      {:cowboy, "~> 1.0"},
      {:earmark, "~> 1.0.3"}]
   end
