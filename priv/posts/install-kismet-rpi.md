@@ -5,10 +5,10 @@ tags: ['coding']
 intro: "Kismet is a wireless sniffing tool that can pull an insane amount of information from wireless data. In this guide I explain how to install Kismet on a Raspberry Pi running Raspbian."
 date: 2017-01-04
 ---
-
+## Setup RPi
 Download the latest version of Raspian from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/) and follow the instructions for burning the image to an SD card. You can find instructions [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md). I prefer to use the Raspbian Lite distrubution because I don’t use the desktop or any GUI applications.
 
-## Set a static IP
+### Set a static IP
 It's useful to have a static IP so you can easily remember where to ssh.
 
 Open the `/etc/dhcpcd.conf` file and at the bottom of the file add the following settings:
@@ -21,20 +21,34 @@ static domain_name_servers=8.8.8.8 8.8.4.4 <or your network dns ip>
 
 ```
 
-## Apply system updates
+### Apply system updates
 ```
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
-## Install dependencies
+### Install dependencies
 ```
 sudo apt-get install wget m4 vim libncurses5-dev libpcap-dev libpcre3-dev \
 libnl-dev ethtool iw rfkill build-essential autoconf openssl libssl-dev \
 fop xsltproc unixodbc-dev git screen
 ```
 
-## Compile & install Kismet
+### Increase the current on USB
+
+In case your using an Alfa wireless antenna and you don't have a powered usb hub,
+you will need to increase the power output that the rpi is delivering over usb.
+
+```
+sudo cp /boot/config.txt /boot/config.txt.bak
+sudo vim /boot/config.txt
+
+# Find max_usb_current and set the value to 1 
+max_usb_current=1
+```
+
+## Setup Kismet
+### Compile & install Kismet
 ```
 cd ~/
 mkdir kismet
@@ -78,7 +92,7 @@ sudo make suidinstall
 sudo adduser <user> kismet //add user that will run `kismet_server` to the `kismet` group
 ```
 
-## Edit kismet.conf
+### Edit kismet.conf
 ```
 popd
 rm -rf ./kismet
@@ -96,7 +110,8 @@ Add `ncsource=wlan1mon` under line 32. `wlan1mon` will be configured with airmon
 
 Save and exit the file.
 
-## Compile & install Aircrack-ng
+## Setup Aircrack-ng
+### Compile & install Aircrack-ng
 ```
 mkdir aircrack
 pushd ./aircrack
@@ -108,19 +123,6 @@ sudo make install
 sudo airodump-ng-oui-update
 popd
 rm -rf ./aircrack
-```
-
-### Increase the current on USB
-
-In case your using an Alfa wireless antenna and you don't have a powered usb hub,
-you will need to increase the power output that the rpi is delivering over usb.
-
-```
-sudo cp /boot/config.txt /boot/config.txt.bak
-sudo vim /boot/config.txt
-
-# Find max_usb_current and set the value to 1 
-max_usb_current=1
 ```
 
 ##  Switch wireless device to monitor mode
@@ -139,7 +141,7 @@ sudo airmon-ng start wlan1
 If successful the `wlan1` interface will have changed to `wlan1mon`. Make sure the name of this interface matches the name set on line 33 in `/usr/local/etc/kismet.conf`.
 
 
-## Start Kismet_Server
+## Using Kismet_Server
 
 For development I just run the kismet server inside a `screen` shell (or whatever the session is called).
 
@@ -152,7 +154,7 @@ kismet_server
 
 Now `kismet_server` should be running on the rpi.
 
-## Connecting to Kismet_Server with Netcat
+### Connecting to Kismet_Server with Netcat
 
 `netcat` should already be installed on the rpi, to connect to the `kismet_server` run
 ```
