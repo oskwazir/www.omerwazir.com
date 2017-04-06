@@ -1,5 +1,5 @@
 ---
-title: Elixir 101 - things you can do in IEx
+title: Learning Elixir - things you can do in IEx
 layout: post
 tags: ['coding']
 intro: "For the Tucson Elixir meetup I gave a lightning talk on IEx, explaining some things that a new Elixir developer might not know. "
