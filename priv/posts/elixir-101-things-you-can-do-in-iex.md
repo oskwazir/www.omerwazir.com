@@ -2,11 +2,11 @@
 title: Elixir 101 - things you can do in IEx
 layout: post
 tags: ['coding']
-intro: "For the Tucson Elixir meetup I gave a lightning talk on IEx, explaining some things that a new Elixir developer might not know."
+intro: "For the Tucson Elixir meetup I gave a lightning talk on IEx, explaining some things that a new Elixir developer might not know. "
 date: 2017-04-05
 ---
 
-If you don’t know what IEx is it’s the interactive elixir shell which is included when Elixir is installed on your computer. If you’re new to Elixir it’s likely that you are learning about Elixir from a book or the online docs. From what I have seen a lot of Elixir introductory material does not illustrate the extra features available to you in IEx. I won’t cover every single feature but I will mention a few things that I think are good to know.
+If you don’t know what IEx is it’s the interactive elixir shell which is included when Elixir is installed on your computer. If you’re new to Elixir it’s likely that you are learning about Elixir from a book or the online docs. From what I have seen a lot of Elixir introductory material does not illustrate the extra features available to you in IEx. Since this post is based on a lightning talk I won’t cover every single feature but I will mention a few things that I think are good to know.
 
 ## A few of the things IEx can do for you
 
@@ -20,7 +20,7 @@ All of the features in IEx are detailed <a href="https://hexdocs.pm/iex/IEx.html
 
 ## Start IEx
 Open your terminal and launch iex by simply typing `iex` and then enter. This
-interactive mode evalutes any Elixir expression which makes it an excellent place to get comfortable with Elixir &amp; OTP.
+interactive mode evaluates any Elixir expression which makes it an excellent place to get comfortable with Elixir &amp; OTP.
 
 ```
 $ iex
@@ -68,7 +68,7 @@ update!/3            update/4             values/1
 ## #iex:break
 This is one of the best features.
 
-In the example below a Map is not closed properly, leaving the expression open and creating chaos. Typing `#iex:break` will essentialy break the expression and allow you to continue as if nothing happened. You will still need to type the expression in again and close it properly. This is probably my favorite feature and something I didn’t know until I started preparing for my talk.
+In the example below a Map is not closed properly, leaving the expression open and creating chaos. Typing `#iex:break` will essentially break the expression and allow you to continue as if nothing happened. You will still need to type the expression in again and close it properly. This is probably my favorite feature and something I didn’t know until I started preparing for my talk.
 
 ```
 iex(2)> %{user: "Artoo",
