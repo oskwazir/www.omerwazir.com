@@ -1,9 +1,9 @@
 ---
-title: Things you can do in iex
+title: Elixir 101 - things you can do in IEx
 layout: post
 tags: ['coding']
 intro: "For the Tucson Elixir meetup I gave a lightning talk on IEx, explaining some things that a new Elixir developer might not know."
-date: 2017-03-01
+date: 2017-04-05
 ---
 
 If you don’t know what IEx is it’s the interactive elixir shell which is included when Elixir is installed on your computer. If you’re new to Elixir it’s likely that you are learning about Elixir from a book or the online docs. From what I have seen a lot of Elixir introductory material does not illustrate the extra features available to you in IEx. I won’t cover every single feature but I will mention a few things that I think are good to know.
@@ -12,12 +12,11 @@ If you don’t know what IEx is it’s the interactive elixir shell which is inc
 
 * <a href="https://hexdocs.pm/iex/IEx.Helpers.html">IEx Helpers</a> which are AMAZING!
 * Autocomplete with . (dot) lookup
-* User shells &amp; Remote shells
-* Evaluates Code - not so good for benchmarks
-* Helps prevent involuntary regular expressions
+* Help break incomplete expressions
 * Shell Configuration
+* Pry into code
 
-All features are detailed <a href="https://hexdocs.pm/iex/IEx.html">here</a></p>
+All of the features in IEx are detailed <a href="https://hexdocs.pm/iex/IEx.html">here</a></p>
 
 ## Start IEx
 Open your terminal and launch iex by simply typing `iex` and then enter. This
@@ -35,7 +34,7 @@ iex(2)>
 
 
 ## IEx.helpers
-One of the most useful and well known helpers is the `h/1` function available from the <a href="https://hexdocs.pm/iex/IEx.Helpers.html#content">IEx.Helpers</a> module. To see everything that `IEx.Helpers` provides run `h()` inside IEx. To learn about IEx run `h(IEx)`.
+One of the most useful helpers is the `h/1` function available from the <a href="https://hexdocs.pm/iex/IEx.Helpers.html#content">IEx.Helpers</a> module. To see everything that `IEx.Helpers` provides run `h()` inside IEx. To learn about IEx run `h(IEx)`.
 
 Some examples:
 * <code>clear/0</code> - clear the screen
@@ -67,7 +66,7 @@ update!/3            update/4             values/1
 ```
 
 ## #iex:break
-This is one of the best features. I mentioned it earlier as “Helps prevent involuntary regular expressions” which is what happens when you improperly closed an expression only to discover that the expression is not evaluating so you start typing in extra characters hoping to close the expression.
+This is one of the best features.
 
 In the example below a Map is not closed properly, leaving the expression open and creating chaos. Typing `#iex:break` will essentialy break the expression and allow you to continue as if nothing happened. You will still need to type the expression in again and close it properly. This is probably my favorite feature and something I didn’t know until I started preparing for my talk.
 
@@ -98,14 +97,14 @@ This is a list of what you can change as of Elixir 1.4:
 
 ### :inspect
 
-Inspect options used by the shell when printing results of expression evaluation. If you want to see everything during IO.inspect\1 then do this:
+Inspect options used by the shell when printing results of expression evaluation. If you want to see everything during `IO.inspect/1` then do this:
 ```
 IEx.configure [inspect: [limit: :infinity]]
 ```
 See more here <a href="https://hexdocs.pm/elixir/Inspect.Opts.html">Inspect.Opts</a>.
 
-## Note: different kinds of inspects
-<code>inspect\1</code> and <code>i\1</code> are different.
+### Note: different kinds of inspects
+<code>inspect/1</code> and <code>i/1</code> are different.
 
 ```
 iex(2)> foo = %{ name: "Bruce Wayne", location: "Gotham"}
@@ -124,7 +123,8 @@ Implemented protocols
 ```
 
 ## Pry into code
-This is its own talk but IEx.pry is useful for debugging.
+This is its own discussion but `IEx.pry` is useful for debugging. You will need to require `IEx` in a module before you can use `pry/0`. Notice in the example below that `require IEx` and `IEx.pry` are both used together. `pry/0` was new to me since I did not have a background in Ruby, and I also thought it was a weird name to use. It’s a lot like `debugger;` from JavaScript.
+
 ```
 defmodule say do
  require IEx
@@ -136,3 +136,6 @@ defmodule say do
  end
 end
 ```
+
+I hope you have learned a little bit more about what IEx offers to you, and you now know where to find out more. Things change with new releases so check with the latest documentation to know how a feature works.
+
