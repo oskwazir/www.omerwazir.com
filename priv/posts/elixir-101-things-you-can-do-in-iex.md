@@ -6,7 +6,7 @@ intro: "For the Tucson Elixir meetup I gave a lightning talk on IEx, explaining 
 date: 2017-04-05
 ---
 
-If you don’t know what IEx is it’s the interactive elixir shell which is included when Elixir is installed on your computer. If you’re new to Elixir it’s likely that you are learning about Elixir from a book or the online docs. From what I have seen a lot of Elixir introductory material does not illustrate the extra features available to you in IEx. Since this post is based on a lightning talk I won’t cover every single feature but I will mention a few things that I think are good to know.
+If you don’t know what IEx is it’s the interactive elixir shell which is included when Elixir is installed on your computer. Since this post is based on a lightning talk I won’t cover every single feature but I will mention a few things that I think are good to know.
 
 ## A few of the things IEx can do for you
 
@@ -123,7 +123,7 @@ Implemented protocols
 ```
 
 ## Pry into code
-This is its own discussion but `IEx.pry` is useful for debugging. You will need to require `IEx` in a module before you can use `pry/0`. Notice in the example below that `require IEx` and `IEx.pry` are both used together. `pry/0` was new to me since I did not have a background in Ruby, and I also thought it was a weird name to use. It’s a lot like `debugger;` from JavaScript.
+Debugging is entirely worthy of its own discussion but `IEx.pry` should be briefly mentioned here. You will need to require `IEx` in a module before you can use `pry/0`. Notice in the example below that `require IEx` and `IEx.pry` are both used together. `pry/0` was new to me since I did not have a background in Ruby, it’s a lot like `debugger;` from JavaScript except when using `pry` “<span style="font-style:italic">Setting variables or importing modules in IEx does not affect the caller the environment</span>” (from the <a href="https://hexdocs.pm/iex/IEx.html#pry/1">pry docs</a>).
 
 ```
 defmodule say do
@@ -137,5 +137,5 @@ defmodule say do
 end
 ```
 
-I hope you have learned a little bit more about what IEx offers to you, and you now know where to find out more. Things change with new releases so check with the latest documentation to know how a feature works.
+I hope you have learned a little bit more about what IEx offers to you, and you now know where to find out more. Things change with new releases so check with the latest documentation to know how a feature works. &#128512;
 
