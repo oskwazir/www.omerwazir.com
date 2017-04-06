@@ -4,7 +4,7 @@ defmodule StaticBlog.Mixfile do
   def project do
     [app: :static_blog,
      version: "0.0.1",
-     elixir: "~> 1.0",
+     elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -32,7 +32,7 @@ defmodule StaticBlog.Mixfile do
     [{:phoenix, "~> 1.2.1"},
      {:phoenix_html, "~> 2.9.2"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:gettext, "~> 0.13.1"},
+     {:gettext, "~> 0.13.1"},s
      {:yamerl, "~> 0.4.0"},
      {:timex, "~> 3.1"},
      {:cowboy, "~> 1.0"},
